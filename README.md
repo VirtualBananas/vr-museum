@@ -1,258 +1,170 @@
-# React Redux Universal Hot Example
+# reactGo
 
-[![build status](https://img.shields.io/travis/erikras/react-redux-universal-hot-example/master.svg?style=flat-square)](https://travis-ci.org/erikras/react-redux-universal-hot-example)
-[![Dependency Status](https://david-dm.org/erikras/react-redux-universal-hot-example.svg?style=flat-square)](https://david-dm.org/erikras/react-redux-universal-hot-example)
-[![devDependency Status](https://david-dm.org/erikras/react-redux-universal-hot-example/dev-status.svg?style=flat-square)](https://david-dm.org/erikras/react-redux-universal-hot-example#info=devDependencies)
-[![react-redux-universal channel on discord](https://img.shields.io/badge/discord-react--redux--universal%40reactiflux-brightgreen.svg?style=flat-square)](https://discord.gg/0ZcbPKXt5bZZb1Ko)
-[![Demo on Heroku](https://img.shields.io/badge/demo-heroku-brightgreen.svg?style=flat-square)](https://react-redux.herokuapp.com)
-[![PayPal donate button](https://img.shields.io/badge/donate-paypal-brightgreen.svg?style=flat-square)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=E2LK57ZQ9YRMN)
+[![Dependency Status][dep-status-img]][dep-status-link] [![devDependency Status][dev-dep-status-img]][dev-dep-status-link]
+[![Gitter][gitter-img]][gitter-link] [![npm version][npm-badge]][npm-link]
 
----
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## About
+> Your One-Stop solution for a full-stack app with ES6/ES2015 React.js featuring universal Redux, React Router, React Router Redux Hot reloading, CSS modules, Express 4.x, and multiple ORMs. :rocket:
 
-This is a starter boilerplate app I've put together using the following technologies:
+_Formerly known as choonkending/react-webpack-node_
 
-* ~~Isomorphic~~ [Universal](https://medium.com/@mjackson/universal-javascript-4761051b7ae9) rendering
-* Both client and server make calls to load data from separate API server
-* [React](https://github.com/facebook/react)
-* [React Router](https://github.com/rackt/react-router)
-* [Express](http://expressjs.com)
-* [Babel](http://babeljs.io) for ES6 and ES7 magic
-* [Webpack](http://webpack.github.io) for bundling
-* [Webpack Dev Middleware](http://webpack.github.io/docs/webpack-dev-middleware.html)
-* [Webpack Hot Middleware](https://github.com/glenjamin/webpack-hot-middleware)
-* [Redux](https://github.com/rackt/redux)'s futuristic [Flux](https://facebook.github.io/react/blog/2014/05/06/flux.html) implementation
-* [Redux Dev Tools](https://github.com/gaearon/redux-devtools) for next generation DX (developer experience). Watch [Dan Abramov's talk](https://www.youtube.com/watch?v=xsSnOQynTHs).
-* [React Router Redux](https://github.com/reactjs/react-router-redux) Redux/React Router bindings.
-* [ESLint](http://eslint.org) to maintain a consistent code style
-* [redux-form](https://github.com/erikras/redux-form) to manage form state in Redux
-* [lru-memoize](https://github.com/erikras/lru-memoize) to speed up form validation
-* [multireducer](https://github.com/erikras/multireducer) to combine single reducers into one key-based reducer
-* [style-loader](https://github.com/webpack/style-loader), [sass-loader](https://github.com/jtangelder/sass-loader) and [less-loader](https://github.com/webpack/less-loader) to allow import of stylesheets in plain css, sass and less,
-* [bootstrap-sass-loader](https://github.com/shakacode/bootstrap-sass-loader) and [font-awesome-webpack](https://github.com/gowravshekar/font-awesome-webpack) to customize Bootstrap and FontAwesome
-* [react-helmet](https://github.com/nfl/react-helmet) to manage title and meta tag information on both server and client
-* [webpack-isomorphic-tools](https://github.com/halt-hammerzeit/webpack-isomorphic-tools) to allow require() work for statics both on client and server
-* [mocha](https://mochajs.org/) to allow writing unit tests for the project.
+[dep-status-img]: https://david-dm.org/choonkending/react-webpack-node.svg
+[dep-status-link]: https://david-dm.org/choonkending/react-webpack-node
+[dev-dep-status-img]: https://david-dm.org/choonkending/react-webpack-node/dev-status.svg
+[dev-dep-status-link]: https://david-dm.org/choonkending/react-webpack-node#info=devDependencies
+[gitter-img]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-link]: https://gitter.im/choonkending/react-webpack-node?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[npm-badge]: https://badge.fury.io/js/react-webpack-node.svg
+[npm-link]: http://badge.fury.io/js/react-webpack-node
 
-I cobbled this together from a wide variety of similar "starter" repositories. As I post this in June 2015, all of these libraries are right at the bleeding edge of web development. They may fall out of fashion as quickly as they have come into it, but I personally believe that this stack is the future of web development and will survive for several years. I'm building my new projects like this, and I recommend that you do, too.
 
-## Installation
+#### Demo site:
 
-```bash
-npm install
+[https://react-webpack-node.herokuapp.com/](https://react-webpack-node.herokuapp.com/)
+
+## Features:
+- ~~isomorphic~~ [**universal**](https://medium.com/@ghengeveld/isomorphism-vs-universal-javascript-4b47fb481beb#.4x2t3jlmx) Rendering
+- [**Redux**](https://github.com/reactjs/redux) Predictive state containers.
+- Server-side rendering with [**React Router**](https://github.com/reactjs/react-router) 2.x. Having server-side rendering allows you to pre-render the initial state of your components when a user (or search engine crawler) requests a page.
+- Integrating Redux with React Router with ~~Redux Simple Router~~ [React Router Redux](https://github.com/reactjs/react-router-redux)
+- Asynchronous Data Fetching on server-side rendering
+- Server side authentication + Redirecting for components
+- Hot reloading using [**react-transform-hmr**](https://github.com/gaearon/react-transform-hmr)
+- Time travel using [**Redux-Devtools Chrome Extension**](https://github.com/zalmoxisus/redux-devtools-extension)
+- [**Webpack**](https://github.com/webpack/webpack) for both development and production bundles. It's (in my opinion) the best bundler for JS, CSS, LESS, images, and lots more!
+- [**CSS Modules**](https://github.com/css-modules/css-modules) allows for modular and reusable CSS. Say goodbye to conflicts (most of them) and global scope
+
+- **Unit Testing** with webpack, karma, jsdom, mocha, sinon & enzyme
+	- Reducers
+	- Components ([Enzyme](http://airbnb.io/enzyme))
+	- Synchronous and Asynchronous Actions
+
+- Express 4.x server with a ton of middleware
+- Mongoose for MongoDB
+- Sequelize for Postgres
+- Procfile to enable deployment to Heroku & Docs on Salt configurations + Deployment for Digital Ocean
+
+
+## Motivation
+
+The motivation is simple: best practices and a wonderful development experience. Our ultimate goal is to provide a boilerplate for building non-trivial applications that are secure, performant and free of bugs. Believing a mixture of React.js, Webpack and Node was the best way to accomplish this, we created react-webpack-node.
+
+react-webpack-node also works great as a learning tool for anyone interested in learning how to implement a large React application, or those who want a modern setup ASAP.
+
+We've had extensive community additions to this boilerplate over time as practices have evolved, and are always interested in hearing new ideas or contributions.
+
+## Why Redux
+
+We're really big fans of this implementation of flux for state management. The main principles of having:
+- a single store
+- state being read-only (you have to express an intent to mutate being creating actions)
+- mutations written as pure functions
+
+make it very fun and easy to write **predictable** code! There's a ton of reasons why, but you should head to the [Redux docs](http://redux.js.org/index.html) to dive in!
+
+Or if you are more of a *visual learner* watch the free egghead video series narrated by the creator of redux:
+
+1. [Getting Started](https://egghead.io/series/getting-started-with-redux)
+2. [Building Idiomatically](https://egghead.io/series/building-react-applications-with-idiomatic-redux)
+
+#### Data Flow
+
+A simplistic representation of data flow from server to client is:
+
+```
+Express app.use() receives a request
+-> Calls a pre-built webpack file for the server
+-> Runs matching of routes in react-router for server
+-> Makes async data fetching request
+-> Renders Route component to string
+-> Construct HTML file (with Meta, Link tags using helmet)
+-> Browser receives html file with initial state
+-> Client side React.JS kicks in and initializes with given state
+-> Continues where it left off
+-> Everyone is happy :)
 ```
 
-## Running Dev Server
+More TBD
 
-```bash
-npm run dev
-```
+#### Redux DevTools
 
-The first time it may take a little while to generate the first `webpack-assets.json` and complain with a few dozen `[webpack-isomorphic-tools] (waiting for the first Webpack build to finish)` printouts, but be patient. Give it 30 seconds.
+You will have to install redux devtools extension from [here](https://github.com/zalmoxisus/redux-devtools-extension) and then everything should just work!
 
-### Using Redux DevTools
+## Instructions
 
-[Redux Devtools](https://github.com/gaearon/redux-devtools) are enabled by default in development.
+#### Database
 
-- <kbd>CTRL</kbd>+<kbd>H</kbd> Toggle DevTools Dock
-- <kbd>CTRL</kbd>+<kbd>Q</kbd> Move DevTools Dock Position
-- see [redux-devtools-dock-monitor](https://github.com/gaearon/redux-devtools-dock-monitor) for more detailed information.
+We currently support MongoDB and Postgres, as well as the ability to not use any database. [Learn](docs/databases.md) about how to configure your app.
 
-If you have the 
-[Redux DevTools chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) installed it will automatically be used on the client-side instead.
+#### Development
 
-If you want to disable the dev tools during development, set `__DEVTOOLS__` to `false` in `/webpack/dev.config.js`.  
-DevTools are not enabled during production.
-
-## Building and Running Production Server
-
-```bash
-npm run build
-npm run start
-```
-
-## Demo
-
-A demonstration of this app can be seen [running on heroku](https://react-redux.herokuapp.com), which is a deployment of the [heroku branch](https://github.com/erikras/react-redux-universal-hot-example/tree/heroku).
-
-## Documentation
-
-* [Exploring the Demo App](docs/ExploringTheDemoApp/ExploringTheDemoApp.md) is a guide that can be used before you install the kit.
-* [Installing the Kit](docs/InstallingTheKit/InstallingTheKit.md) guides you through installation and running the development server locally.
-* [Adding Text to the Home Page](docs/AddingToHomePage/AddingToHomePage.md) guides you through adding "Hello, World!" to the home page.
-* [Adding A Page](docs/AddingAPage/AddingAPage.md) guides you through adding a new page.
-* [React Tutorial - Converting Reflux to Redux](http://engineering.wework.com/process/2015/10/01/react-reflux-to-redux/), by Matt Star
-   If you are the kind of person that learns best by following along a tutorial, I can recommend Matt Star's overview and examples.
-
-
-## Explanation
-
-What initially gets run is `bin/server.js`, which does little more than enable ES6 and ES7 awesomeness in the
-server-side node code. It then initiates `server.js`. In `server.js` we proxy any requests to `/api/*` to the
-[API server](#api-server), running at `localhost:3030`. All the data fetching calls from the client go to `/api/*`.
-Aside from serving the favicon and static content from `/static`, the only thing `server.js` does is initiate delegate
-rendering to `react-router`. At the bottom of `server.js`, we listen to port `3000` and initiate the API server.
-
-#### Routing and HTML return
-
-The primary section of `server.js` generates an HTML page with the contents returned by `react-router`. First we instantiate an `ApiClient`, a facade that both server and client code use to talk to the API server. On the server side, `ApiClient` is given the request object so that it can pass along the session cookie to the API server to maintain session state. We pass this API client facade to the `redux` middleware so that the action creators have access to it.
-
-Then we perform [server-side data fetching](#server-side-data-fetching), wait for the data to be loaded, and render the page with the now-fully-loaded `redux` state.
-
-The last interesting bit of the main routing section of `server.js` is that we swap in the hashed script and css from the `webpack-assets.json` that the Webpack Dev Server – or the Webpack build process on production – has spit out on its last run. You won't have to deal with `webpack-assets.json` manually because [webpack-isomorphic-tools](https://github.com/halt-hammerzeit/webpack-isomorphic-tools) take care of that.
-
-We also spit out the `redux` state into a global `window.__data` variable in the webpage to be loaded by the client-side `redux` code.
-
-#### Server-side Data Fetching
-
-The [redux-async-connect](https://www.npmjs.com/package/redux-async-connect) package exposes an API to return promises that need to be fulfilled before a route is rendered. It exposes a `<ReduxAsyncConnect />` container, which wraps our render tree on both [server](https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/server.js) and [client](https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/client.js). More documentation is available on the [redux-async-connect](https://www.npmjs.com/package/redux-async-connect) page.
-
-#### Client Side
-
-The client side entry point is reasonably named `client.js`. All it does is load the routes, initiate `react-router`, rehydrate the redux state from the `window.__data` passed in from the server, and render the page over top of the server-rendered DOM. This makes React enable all its event listeners without having to re-render the DOM.
-
-#### Redux Middleware
-
-The middleware, [`clientMiddleware.js`](https://github.com/erikras/react-redux-universal-hot-example/blob/master/src/redux/middleware/clientMiddleware.js), serves two functions:
-
-1. To allow the action creators access to the client API facade. Remember this is the same on both the client and the server, and cannot simply be `import`ed because it holds the cookie needed to maintain session on server-to-server requests.
-2. To allow some actions to pass a "promise generator", a function that takes the API client and returns a promise. Such actions require three action types, the `REQUEST` action that initiates the data loading, and a `SUCCESS` and `FAILURE` action that will be fired depending on the result of the promise. There are other ways to accomplish this, some discussed [here](https://github.com/rackt/redux/issues/99), which you may prefer, but to the author of this example, the middleware way feels cleanest.
-
-#### Redux Modules... *What the Duck*?
-
-The `src/redux/modules` folder contains "modules" to help
-isolate concerns within a Redux application (aka [Ducks](https://github.com/erikras/ducks-modular-redux), a Redux Style Proposal that I came up with). I encourage you to read the
-[Ducks Docs](https://github.com/erikras/ducks-modular-redux) and provide feedback.
-
-#### API Server
-
-This is where the meat of your server-side application goes. It doesn't have to be implemented in Node or Express at all. This is where you connect to your database and provide authentication and session management. In this example, it's just spitting out some json with the current time stamp.
-
-#### Getting data and actions into components
-
-To understand how the data and action bindings get into the components – there's only one, `InfoBar`, in this example – I'm going to refer to you to the [Redux](https://github.com/gaearon/redux) library. The only innovation I've made is to package the component and its wrapper in the same js file. This is to encapsulate the fact that the component is bound to the `redux` actions and state. The component using `InfoBar` needn't know or care if `InfoBar` uses the `redux` data or not.
-
-#### Images
-
-Now it's possible to render the image both on client and server. Please refer to issue [#39](https://github.com/erikras/react-redux-universal-hot-example/issues/39) for more detail discussion, the usage would be like below (super easy):
-
-```javascript
-let logoImage = require('./logo.png');
-```
-
-#### Styles
-
-This project uses [local styles](https://medium.com/seek-ui-engineering/the-end-of-global-css-90d2a4a06284) using [css-loader](https://github.com/webpack/css-loader). The way it works is that you import your stylesheet at the top of the `render()` function in your React Component, and then you use the classnames returned from that import. Like so:
-
-```javascript
-render() {
-const styles = require('./App.scss');
-...
-```
-
-Then you set the `className` of your element to match one of the CSS classes in your SCSS file, and you're good to go!
-
-```jsx
-<div className={styles.mySection}> ... </div>
-```
-
-#### Alternative to Local Styles
-
-If you'd like to use plain inline styles this is possible with a few modifications to your webpack configuration.
-
-**1. Configure Isomorphic Tools to Accept CSS**
-
-In `webpack-isomorphic-tools.js` add **css** to the list of style module extensions
-
-```javascript
-    style_modules: {
-      extensions: ['less','scss','css'],
-```
-
-**2. Add a CSS loader to webpack dev config**
-
-In `dev.config.js` modify **module loaders** to include a test and loader for css
-
-```javascript
-  module: {
-    loaders: [
-      { test: /\.css$/, loader: 'style-loader!css-loader'},
-```
-
-**3. Add a CSS loader to the webpack prod config**
-
-You must use the **ExtractTextPlugin** in this loader. In `prod.config.js` modify **module loaders** to include a test and loader for css
-
-```javascript
-  module: {
-    loaders: [
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
-```
-
-**Now you may simply omit assigning the `required` stylesheet to a variable and keep it at the top of your `render()` function.**
-
-```javascript
-render() {
-require('./App.css');
-require('aModule/dist/style.css');
-...
-```
-
-**NOTE** In order to use this method with **scss or less** files one more modification must be made. In both `dev.config.js` and `prod.config.js` in the loaders for less and scss files remove 
-
-1. `modules`
-2. `localIdentName...`
-
-Before:
-```javascript
-{ test: /\.less$/, loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!less?outputStyle=expanded&sourceMap' },
-```
-After:
-```javascript
-{ test: /\.less$/, loader: 'style!css?importLoaders=2&sourceMap!autoprefixer?browsers=last 2 version!less?outputStyle=expanded&sourceMap' },
-```
-
-After this modification to both loaders you will be able to use scss and less files in the same way as css files.
+Development is a breeze. Once you have installed all your dependencies all the configuration is done for you. using simple The process is outlined [here](docs/development.md).
 
 #### Unit Tests
 
-The project uses [Mocha](https://mochajs.org/) to run your unit tests, it uses [Karma](http://karma-runner.github.io/0.13/index.html) as the test runner, it enables the feature that you are able to render your tests to the browser (e.g: Firefox, Chrome etc.), which means you are able to use the [Test Utilities](http://facebook.github.io/react/docs/test-utils.html) from Facebook api like `renderIntoDocument()`.
+Testing with:
+- `karma` as test runner
+	- `karma.conf.js` for the main karma configuration (it has webpack configurations)
+	- `tests.webpack.js` which is the single entry file. It uses `webpack`'s require API to find all the files we need that have a `-test.js` suffix.
+- `mocha` as the test framework
+- `jsdom` as my test environment
 
-To run the tests in the project, just simply run `npm test` if you have `Chrome` installed, it will be automatically launched as a test service for you.
+```bash
+# Run test once
+npm test
 
-To keep watching your test suites that you are working on, just set `singleRun: false` in the `karma.conf.js` file. Please be sure set it to `true` if you are running `npm test` on a continuous integration server (travis-ci, etc).
+# Run in watch mode
+npm test:watch
+```
 
-## Deployment on Heroku
+We have unit tests for async (redux) actions, reducers, and stateless components with [enzyme](http://airbnb.io/enzyme).
 
-To get this project to work on Heroku, you need to:
+#### Deployment
 
-1. Remove the `"PORT": 8080` line from the `betterScripts` / `start-prod` section of `package.json`.
-2. `heroku config:set NODE_ENV=production`
-3. `heroku config:set NODE_PATH=./src`
-4. `heroku config:set NPM_CONFIG_PRODUCTION=false`
-  * This is to enable webpack to run the build on deploy.
+Currently we support [Heroku](docs/deployment/Heroku.md) and [Digital Ocean](docs/deployment/DigitalOcean.md) and [AWS](docs/deployment/AWS.md)
 
-The first deploy might take a while, but after that your `node_modules` dir should be cached.
+#### Roadmap
+We have an outline of our roadmap [here](https://github.com/reactGo/reactGo/blob/master/Roadmap.md)
+
+## Yeoman Generator
+If you like using yeoman generators, you could check out [this](https://github.com/iiegor/generator-react-webpack-node) cool yeoman generator by @iiegor!
+
 
 ## FAQ
 
-This project moves fast and has an active community, so if you have a question that is not answered below please visit our [Discord channel](https://discord.gg/0ZcbPKXt5bZZb1Ko) or file an issue.
+We have assembled an FAQ [here](/docs/FAQ.md)
+
+## Check out what people have done
+
+We have a [list](/docs/apps.md) of projects that have been created with this boilerplate. Check
+them out to see what can be done or to get some inspiration.
+
+## How to Contribute:
+
+Best way to keep up to date is check the [issues](https://github.com/choonkending/react-webpack-node/issues). I really welcome improvements for **all aspects** of an app.
+
+1. Any suggestions/improvements/bugs can be in the form of Pull Requests, or creating an issue.
+2. Coding guidelines:
+ - [Airbnb's Style Guide](https://github.com/airbnb/javascript)
+ - [bendc's frontend guidelines](https://github.com/bendc/frontend-guidelines)
 
 
-## Roadmap 
+Credits to [webpack-server-side-example](https://github.com/webpack/react-webpack-server-side-example), [example-app](https://github.com/webpack/example-app), [flux-examples](https://github.com/facebook/flux/tree/master/examples), [node-express-mongo-demo](https://github.com/madhums/node-express-mongoose-demo), [hackathon-starter](https://github.com/sahat/hackathon-starter/), [web-starter-kit](https://github.com/google/web-starter-kit), [awesome material-ui](https://github.com/callemall/material-ui), [alt and iso](https://github.com/goatslacker/iso/tree/master/examples/react-router-flux), [react-starter](https://github.com/webpack/react-starter), [reap](https://github.com/choonkending/reap), [isomorphic-redux-app](https://github.com/caljrimmer/isomorphic-redux-app) and [mxstbr/react-boilerplate](https://github.com/mxstbr/react-boilerplate/blob/master/README.md)
 
-Although this isn't a library, we recently started versioning to make it easier to track breaking changes and emerging best practices. 
+**Easter Eggs** :egg:
 
-* [Inline Styles](docs/InlineStyles.md) - CSS is dead
+This boilerplate has gone through an evolution
+```
+React.js -> Facebook Flux -> Alt -> Redux
+```
 
-## Contributing
+We have two implementations of universal flux:
+- **Redux** is on our active **master** branch
+- [**Alt**](https://github.com/goatslacker/alt) (previously implemented) on [flux/alt](https://github.com/choonkending/react-webpack-node/tree/flux/alt) branch. It features [iso](https://github.com/goatslacker/iso), react-router and ImmutableJS.
 
-I am more than happy to accept external contributions to the project in the form of feedback, bug reports and even better - pull requests :) 
+> Note: If you have previously used an alt implementation of this repository, please refer to this branch. I will not be updating it as frequently as master, but definitely welcome suggestions!
 
-If you would like to submit a pull request, please make an effort to follow the guide in [CONTRIBUTING.md](CONTRIBUTING.md). 
- 
----
-Thanks for checking this out.
-
-– Erik Rasmussen, [@erikras](https://twitter.com/erikras)
+License
+===============
+MIT
