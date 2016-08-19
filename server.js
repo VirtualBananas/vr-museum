@@ -12,7 +12,7 @@ var proxy = httpProxy.createProxyServer({
   changeOrigin: true
 });
 // connection for production
-mongoose.connect(process.env.mongoURI);
+mongoose.connect('mongodb://museum:museum12345@ds043027.mlab.com:43027/vrmuseum');
 
 
 // // connection local
