@@ -5,25 +5,14 @@ import { getHelloWorld } from './actions'
 
 class Index extends Component {
 
-  componentWillMount() {
-    this.props.dispatch(getHelloWorld())
-  }
-
   render() {
     return (
-      <div>Hello World<div>
+      <div>Hello World</div>
     )
   }
 }
 
-function mapStateToProps(state) {
-  console.log(state)
-  const hello = state.hello
-  return {
-    hello
-  } 
-}
 
-export default connect(mapStateToProps)(Index)
+export default Index
 
 
