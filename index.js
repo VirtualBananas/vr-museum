@@ -1,18 +1,12 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import { connect } from 'react-redux'
-import { getHelloWorld } from './actions'
 
-class Index extends Component {
-
+class HelloWorld extends Component {
   render() {
     return (
-      <div>Hello World</div>
+      <div>Hello World!</div>
     )
   }
 }
 
-
-export default Index
-
-
+render(<HelloWorld/>, document.getElementById('app'))

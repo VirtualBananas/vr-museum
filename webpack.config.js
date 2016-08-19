@@ -11,7 +11,7 @@ module.exports = {
     //refreshes the browser when it can't hot update
     'webpack-dev-server/client?http://localhost:8080', 
     //our entry point
-    './root.js' 
+    './index.js' 
   ],
   output: {
     path: path.join(__dirname, 'public', 'build'),
