@@ -10,7 +10,11 @@ var port = process.env.PORT || 3000;
 var proxy = httpProxy.createProxyServer({
   changeOrigin: true
 });
+// connection for production
 mongoose.connect(process.env.mongoURI);
+
+// // connection local
+// mongoose.connect('mongo://localhost/users');
 var app = express();
 
 //serving our index.html
