@@ -4,7 +4,7 @@ import { render } from 'react-dom'
 class HelloWorld extends Component {
   render() {
     return (
-      <div>Hello World!</div>
+      <div>Hello mangos</div>
     )
   }
 }
