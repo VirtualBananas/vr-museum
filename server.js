@@ -3,7 +3,7 @@ var path = require('path');
 var httpProxy = require('http-proxy');
 var publicPath = path.resolve(__dirname, 'public');
 
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 // We need to add a configuration to our proxy server,
 // as we are now proxying outside localhost
