@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var httpProxy = require('http-proxy');
 var publicPath = path.resolve(__dirname, 'public');
-
+var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 
 // We need to add a configuration to our proxy server,
@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 var proxy = httpProxy.createProxyServer({
   changeOrigin: true
 });
-
+mongoose.connect(process.env.mongoURI);
 var app = express();
 
 //serving our index.html
