@@ -5,6 +5,7 @@ var publicPath = path.resolve(__dirname, 'public');
 var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 
+
 // We need to add a configuration to our proxy server,
 // as we are now proxying outside localhost
 var proxy = httpProxy.createProxyServer({
@@ -13,8 +14,11 @@ var proxy = httpProxy.createProxyServer({
 // connection for production
 mongoose.connect(process.env.mongoURI);
 
+
 // // connection local
 // mongoose.connect('mongo://localhost/users');
+
+var User = mongoose.model('User');
 var app = express();
 
 //serving our index.html
