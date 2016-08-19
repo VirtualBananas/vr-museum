@@ -11,7 +11,7 @@ class Index extends Component {
 
   render() {
     return (
-      <div>{this.props.hello}</div>
+      <div>Hello World<div>
     )
   }
 }
