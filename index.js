@@ -1,18 +1,12 @@
+import React, { Component } from 'react'
+import { render } from 'react-dom'
 import 'aframe';
-import 'babel-polyfill';
-import {Animation, Entity, Scene} from 'aframe-react';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {Entity, Scene} from 'aframe-react';
 
-import Camera from './components/Camera';
-import Cursor from './components/Cursor';
-import Sky from './components/Sky';
-
-class BoilerplateScene extends React.Component {
- 
+class HelloWorld extends React.Component {
   render () {
     return (
-      <a-scene>
+    	<Scene>
 
       <a-entity position="0 0 8" camera="userHeight: 1.8" look-controls='' wasd-controls='' ></a-entity>
 
@@ -66,9 +60,9 @@ class BoilerplateScene extends React.Component {
 
       <a-sky color="#ECECEC"></a-sky>
 
-    </a-scene>
-    );
+    </Scene>
+          );
   }
 }
 
-ReactDOM.render(<BoilerplateScene/>, document.querySelector('.scene-container'));
+render(<HelloWorld/>, document.getElementById('app'))

@@ -1,19 +1,16 @@
 var webpack = require('webpack');
 var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
-
+var buildPath = path.resolve(__dirname, 'public', 'build');
 
 var config = {
 
   // We change to normal source mapping
   devtool: 'source-map',
-  entry: './public/js/app',
+  entry: './index.js',
   output: {
-    // Bundle will be served at /bundle.js locally.
-    filename: 'bundle.js',
-    // Bundle will be built at ./src/media/js.
-    path: './build',
-    publicPath: '/',
+    path: buildPath,
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
