@@ -6,7 +6,7 @@ import {Entity, Scene} from 'aframe-react';
 class HelloWorld extends React.Component {
   render () {
     return (
-      <Scene>
+      <a-scene>
 
       <a-entity position="0 0 8" camera="userHeight: 1.8" look-controls wasd-controls></a-entity>
 
@@ -58,8 +58,8 @@ class HelloWorld extends React.Component {
 
       <a-sky color="#ECECEC"></a-sky>
 
-    </Scene>
-    
+    </a-scene>
+
     );
   }
 }
