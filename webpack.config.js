@@ -1,67 +1,44 @@
-var path = require('path');
-var webpack = require('webpack');
-require('babel-polyfill');
-
-var IS_PRODUCTION = process.env.NODE_ENV === 'production';
-
-var ENTRY_POINTS = [
-  './src/js/app'
-];
-
-var JS_LOADERS = [
-  'babel?cacheDirectory&presets[]=react,presets[]=es2015,presets[]=stage-0'
-];
-
-var PLUGINS = [];
-if (IS_PRODUCTION) {
-  // Uglify in production.
-  PLUGINS.push(
-    new webpack.optimize.UglifyJsPlugin({
-      mangle: {
-          except: ['$super', '$', 'exports', 'require']
-      },
-      sourcemap: false
-    })
-  );
-}
+var path = require('path')
+var webpack =require('webpack')
 
 module.exports = {
-  entry: ENTRY_POINTS,
+
+  //fastest rebuild and build speed
+  devtool: 'eval', 
+  entry: [
+    //for hot style updates
+    'webpack/hot/dev-server',
+    //refreshes the browser when it can't hot update
+    'webpack-dev-server/client?http://localhost:8080', 
+    //our entry point
+    './public/js/app' 
+  ],
   output: {
-    // Bundle will be served at /bundle.js locally.
+    path: path.join(__dirname, 'public', 'build'),
     filename: 'bundle.js',
-    // Bundle will be built at ./src/media/js.
-    path: './build',
-    publicPath: '/',
+    publicPath: '/build/' //the server will listen in on this path and then proxy Webpack
   },
+
   module: {
     loaders: [
       {
-        // JS.
-        exclude: /(node_modules|bower_components)/,
-        loaders: JS_LOADERS,
         test: /\.js$/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react']
+        },
+        exclude: '/node_modules'
       },
+      //This converts our .css into JS
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
       }
-    ],
-  },
-  plugins: PLUGINS,
-  resolve: {
-    extensions: ['', '.js', '.json'],
-    fallback: path.join(__dirname, 'node_modules'),
-    modulesDirectories: [
-      'src/js',
-      'node_modules',
     ]
   },
-  resolveLoader: {
-    fallback: [path.join(__dirname, 'node_modules')]
-  }
+  //Since we're running Webpack from our server, need to manually add the
+  //Hot Replacement plugin
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ]
 };
