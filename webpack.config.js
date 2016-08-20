@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'eval', 
   entry: [
     //for hot style updates
-    'webpack/hot/dev-server',
+    
     //refreshes the browser when it can't hot update
     'webpack-dev-server/client?http://localhost:8080', 
     //our entry point
