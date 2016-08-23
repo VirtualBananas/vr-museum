@@ -13,22 +13,14 @@ class BoilerplateScene extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      color: 'red'
-    }
+    this.state = {}
   }
 
-  //var changeColor = function(){ }
-  changeColor () {
-    const colors = ['red', 'orange', 'yellow', 'green', 'blue'];
-    this.setState({
-      color: colors[Math.floor(Math.random() * colors.length)],
-    });
-  };
+ 
 
   render () {
     return (
-      <Scene>
+      <Scene >
 
         <Camera><Cursor/></Camera>
 
@@ -111,8 +103,7 @@ class BoilerplateScene extends React.Component {
         </Entity>
 
       </Entity>
-
-      </Scene>
+    </Scene>
     );
   }
 }
