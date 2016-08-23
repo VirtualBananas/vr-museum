@@ -119,7 +119,7 @@ class BoilerplateScene extends React.Component {
                 position={[-10, -2, -6]}
                 radius="1.5"
                 scale="1 .0625 1"
-                onClick={() => this.setState({position: [-10,2,-6]}, console.log(this.state.position))}>
+                onClick={() => this.setState({position: [-10 ,2, 6]}, console.log(this.state.position))}>
         </Entity>
 
         <Entity geometry="primitive: cylinder"
@@ -127,7 +127,7 @@ class BoilerplateScene extends React.Component {
                 position={[10, -2, 6]}
                 radius="1.5"
                 scale="1 .0625 1"
-                onClick={() => this.setState({position: [10,2,6]}, console.log(this.state.position))}>
+                onClick={() => this.setState({position: [10, 2, 6]}, console.log(this.state.position))}>
         </Entity>
 
         <Entity geometry="primitive: cylinder"
@@ -135,7 +135,7 @@ class BoilerplateScene extends React.Component {
                 position={[0, -2, -6]}
                 radius="1.5"
                 scale="1 .0625 1"
-                onClick={() => this.setState({position: [0,2,-6]}, console.log(this.state.position))}>
+                onClick={() => this.setState({position: [0, 2, -6]}, console.log(this.state.position))}>
         </Entity>
 
         <Entity geometry="primitive: cylinder"
@@ -143,7 +143,7 @@ class BoilerplateScene extends React.Component {
                 position={[0, -2, 6]}
                 radius="1.5"
                 scale="1 .0625 1"
-                onClick={() => this.setState({position: [0,2,-6]}, console.log(this.state.position))}>
+                onClick={() => this.setState({position: [0, 2, -6]}, console.log(this.state.position))}>
         </Entity>
 
 
@@ -152,7 +152,7 @@ class BoilerplateScene extends React.Component {
                 position={[-10, -2, 6]}
                 radius="1.5"
                 scale="1 .0625 1"
-                onClick={() => this.setState({position: [-10,2,6]}, console.log(this.state.position))}>
+                onClick={() => this.setState({position: [-10, 2, 6]}, console.log(this.state.position))}>
         </Entity>
 
         <Entity geometry={{primitive: 'cylinder'}}
@@ -160,10 +160,127 @@ class BoilerplateScene extends React.Component {
                 position={[10, -2, -6]}
                 radius="1.5"
                 scale="1 .0625 1"
-                onClick={() => this.setState({position: [10,2,-6]}, console.log(this.state.position))}>
+                onClick={() => this.setState({position: [10, 2, -6]}, console.log(this.state.position))}>
         </Entity>
 
 
+
+
+
+
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[-20,-2,-12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [-20, 2, -12]}, console.log(this.state.position))}>
+        </Entity>
+
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[-10,-2,-12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [-10, 2, -12]}, console.log(this.state.position))}>
+        </Entity>
+
+
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[0,-2,-12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [0, 2, -12]}, console.log(this.state.position))}>
+        </Entity>
+
+
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[10,-2,-12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [10, 2, -12]}, console.log(this.state.position))}>
+        </Entity>
+
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[20,-2,-12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [20, 2, -12]}, console.log(this.state.position))}>
+        </Entity>
+
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[-20,-2,-6]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [-20, 2, -6]}, console.log(this.state.position))}>
+        </Entity>
+
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[20,-2,-6]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [20, 2, -6]}, console.log(this.state.position))}>
+        </Entity>
+        
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[-20,-2,6]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [-20, 2, 6]}, console.log(this.state.position))}>
+        </Entity>
+        
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[20,-2,6]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [20, 2, 6]}, console.log(this.state.position))}>
+        </Entity>
+        
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[-20,-2,12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [-20, 2, 12]}, console.log(this.state.position))}>
+        </Entity>
+        
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[-10,-2,12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [-10, 2, 12]}, console.log(this.state.position))}>
+        </Entity>
+        
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[0,-2,12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [0, 2, 12]}, console.log(this.state.position))}>
+        </Entity>
+        
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[10,-2,12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [10, 2, 12]}, console.log(this.state.position))}>
+        </Entity>
+        
+        <Entity geometry={{primitive: 'cylinder'}}
+                material="color: #8A2BE2"
+                position={[20,-2,12]}
+                radius="1.5"
+                scale="1 .0625 1"
+                onClick={() => this.setState({position: [20, 2, 12]}, console.log(this.state.position))}>
+        </Entity>
 
       </Entity>
     </Scene>
