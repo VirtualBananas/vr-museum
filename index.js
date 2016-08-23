@@ -22,7 +22,9 @@ class BoilerplateScene extends React.Component {
     return (
       <Scene >
 
-        <Camera><Cursor/></Camera>
+        <Camera>
+            <Cursor fuse="true" max-distance="10" timeout="1500"/>
+        </Camera>
 
         <Sky/>
 
