@@ -31,7 +31,7 @@ class BoilerplateScene extends React.Component {
         <Entity light={{type: 'directional', intensity: 1}} position={[1, 1, 0]}/>
 
       <Entity>
-        <Entity geometry="primitive: plane; width: 30; height: 20" 
+        <Entity geometry="primitive: plane; width: 30; height: 30" 
                 material={{color: "black"}}
                 position="0 -2 0"
                 rotation="-90 0 0">
