@@ -5,34 +5,38 @@ import {Animation, Entity, Scene} from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Camera from './components/Camera';
-import Cursor from './components/Cursor';
-import Sky from './components/Sky';
+import Camera from './public/components/Camera';
+import Cursor from './public/components/Cursor';
+import Sky from './public/components/Sky';
+import Navigator from './public/components/navigation';
 
 
 class BoilerplateScene extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-        position: [0, 0, 8]
-    }
+    this.state = { cameraPos: [0, 0, 10]}
   }
 
- changePosition () {
-    let position = this.position;
-    console.log(this.state.position)
-    console.log(this)
- }
+  camViewdif(position){
+    let pos1 = position[0];
+    let pos2 = 2;
+    let pos3 = position[2];
+    this.setState({ cameraPos: [pos1, pos2, pos3]});
 
- 
+  }
 
   render () {
     return (
       <Scene >
 
-        <Camera position={this.state.position}>
-            <Cursor fuse="true" max-distance="5" timeout="2000"/>
+      <a-assets>
+        <img id="world-texture" src="./assets/world.jpg" />
+      </a-assets>
+
+        <Camera position={this.state.cameraPos} >
+
+          <Cursor fuse="true" max-distance="10" timeout="1500"/>
         </Camera>
 
         <Sky/>
@@ -273,6 +277,8 @@ class BoilerplateScene extends React.Component {
                 scale="1 .0625 1"
                 onClick={() => this.setState({position: [10, 2, 12]}, console.log(this.state.position))}>
         </Entity>
+
+         <Navigator changeCamView={ this.camViewdif.bind(this) } />
         
         <Entity geometry={{primitive: 'cylinder'}}
                 material="color: #8A2BE2"
