@@ -9,6 +9,10 @@ import Camera from './public/components/Camera';
 import Cursor from './public/components/Cursor';
 import Sky from './public/components/Sky';
 import Navigator from './public/components/Navigation';
+import Walls from './public/components/Walls';
+import Globe from './public/components/Globe';
+import Light from './public/components/Light';
+import Floor from './public/components/Floor';
 
 
 class BoilerplateScene extends React.Component {
@@ -34,7 +38,6 @@ class BoilerplateScene extends React.Component {
         <img id="world-texture" src="./assets/world.jpg" />
         <img id="floor-texture" src="./assets/image2.jpg" />
         <img id="ceiling-texture" src="./assets/color-rush.png" />
-        <img id="sky-texture" src="./assets/class.jpg" />
         <img id="wood-texture" src="./assets/wood_1.jpg" />
         <img id="pano" src="./assets/pano_full.jpg" />
 
@@ -46,21 +49,14 @@ class BoilerplateScene extends React.Component {
 
         <Camera position={this.state.cameraPos} >
 
-          <Cursor fuse="true" max-distance="10" timeout="1500"/>
+          <Cursor fuse="true" max-distance="10" timeout="1500" color="red"/>
         </Camera>
 
         <Sky/>
-
-        <Entity light={{type: 'ambient', color: '#888'}}/>
-        <Entity light={{type: 'directional', intensity: 0.5}} position={[-1, 1, 0]}/>
-        <Entity light={{type: 'directional', intensity: 1}} position={[1, 1, 0]}/>
+        <Light />
 
       <Entity>
-        <Entity geometry="primitive: plane; width: 60; height: 50" 
-                material="src: #floor-texture"
-                position="0 -2 0"
-                rotation="-90 0 0">
-        </Entity>
+        <Floor material="src: #floor-texture" />
 
         <Entity geometry="primitive: box; width: 60; height: 50" 
                 material="src: #ceiling-texture; transparent: true; opacity: 0.3"
@@ -68,19 +64,8 @@ class BoilerplateScene extends React.Component {
                 rotation="-90 0 0">
         </Entity>
 
-        <Entity geometry="primitive: box; width: 0.5; height: 10; depth: 20" 
-                material="src: #wood-texture"
-                position="-20 0 -20"
-                rotation="0 90 0">
-        </Entity>
 
-        <Entity geometry="primitive: cylinder; openEnded: true; thetaLength: 180" 
-                material="side: double; src: #wood-texture"
-                position="0 0 -20"
-                rotation="0 90 0"
-                radius="5"
-                scale="5 10 10">
-        </Entity>
+
 
         <Entity geometry="primitive: box; width: 5; height: 5; depth: 0.5" 
                 material="src: #yosemite1"
@@ -88,37 +73,8 @@ class BoilerplateScene extends React.Component {
                 rotation="0 0 0">
         </Entity>
 
-        <Entity geometry="primitive: box; width: 0.5; height: 10; depth: 20" 
-                material="src: #wood-texture"
-                position="20 0 -20"
-                rotation="0 90 0">
-        </Entity>
 
 
-        <Entity geometry="primitive: box; width: 0.5; height: 10; depth: 60" material="src: #wood-texture"
-                position="0 0 20"
-                rotation="0 90 0">
-        </Entity>
-
-        <Entity geometry="primitive: box; width: 0.5; height: 10; depth: 40" material="src: #wood-texture"
-                position="-30 0 0"
-                rotation="0 0 0">
-        </Entity>
-
-        <Entity geometry="primitive: box; width: 0.5; height: 10; depth: 40" material="src: #wood-texture"
-                position="30 0 0"
-                rotation="0 0 0">
-        </Entity>
-
-        <Entity geometry="primitive: box; width: 0.5; height: 10; depth: 15" material="src: #wood-texture"
-                position="-23.5 0 0"
-                rotation="0 90 0">
-        </Entity>
-
-        <Entity geometry="primitive: box; width: 0.5; height: 10; depth: 15" material="src: #wood-texture"
-                position="23.5 0 0"
-                rotation="0 90 0">
-        </Entity>
 
 
         <Entity geometry="primitive: box; width: 5; height: 5; depth: 0.5" 
@@ -146,22 +102,10 @@ class BoilerplateScene extends React.Component {
         </Entity>
 
 
-        <Entity geometry="primitive: sphere" 
-                material="src: #world-texture; side: double"
-                position={[0,2.75,0]}
-                radius="1.5"
-                scale="2.75 2.75 2.75">
-          <Animation attribute="rotation" dur="10000" repeat="indefinite" to="0 360 0"/>
-        </Entity>
+    
 
-        <Entity geometry="primitive: cylinder"
-                material="src: #wood-texture"
-                position="0 -1 0"
-                radius="1.5"
-                scale="2 0.75 2">
-        </Entity>
-
-
+        <Globe world={"src: #world-texture; side: double"} changeCamView= { this.camViewdif.bind(this) }  />
+        
         <Entity geometry="primitive: cylinder; height: 4.5"
                 material="src: #wood-texture"
                 position="-23.5 -1 6"
@@ -265,6 +209,42 @@ class BoilerplateScene extends React.Component {
                 radius="1"
                 scale="1.25 1.25 1.25">
         </Entity>
+
+
+
+
+
+        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
+                material= "color: white"
+                position="-22 1 6"
+                rotation="-45 90 0"
+                onClick={() => {camViewdif([0,0,0])}}>
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
+                material= "color: white"
+                position="-22 1 -6"
+                rotation="-45 90 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
+                material= "color: white"
+                position="22 1 -6"
+                rotation="45 90 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
+                material= "color: white"
+                position="22 1 6"
+                rotation="45 90 0">
+        </Entity>
+
+        <Walls material= "src: #wood-texture" />
+
+
+
+
+
 
 
            <Navigator changeCamView={ this.camViewdif.bind(this) } />
