@@ -40,7 +40,6 @@ class BoilerplateScene extends React.Component {
         <img id="ceiling-texture" src="./assets/color-rush.png" />
         <img id="wood-texture" src="./assets/wood_1.jpg" />
         <img id="pano" src="./assets/pano_full.jpg" />
-
         <img id="yosemite1" src="./assets/yosemite1.jpg" />
         <img id="yosemite2" src="./assets/yosemite2.jpg" />
         <img id="yosemite3" src="./assets/yosemite3.jpg" />
@@ -106,148 +105,136 @@ class BoilerplateScene extends React.Component {
 
         <Globe world={"src: #world-texture; side: double"} changeCamView= { this.camViewdif.bind(this) }  />
         
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="-23.5 -1 6"
-                radius="0.75">
-        </Entity>
 
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="-23.5 2.5 6"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
-
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="-23.5 -1 12"
-                radius="0.75">
-        </Entity>
-
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="-23.5 2.5 12"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
     
+
         <Entity geometry="primitive: cylinder; height: 4.5"
                 material="src: #wood-texture"
-                position="23.5 -1 6"
+                position="-25 -1 10"
                 radius="0.75">
         </Entity>
 
         <Entity geometry="primitive: sphere" 
                 material="src: #pano; side: double"
-                position="23.5 2.5 6"
+                position="-25 2.5 10"
                 radius="1"
                 scale="1.25 1.25 1.25">
         </Entity>
 
         <Entity geometry="primitive: cylinder; height: 4.5"
                 material="src: #wood-texture"
-                position="23.5 -1 12"
+                position="25 -1 10"
                 radius="0.75">
         </Entity>
 
         <Entity geometry="primitive: sphere" 
                 material="src: #pano; side: double"
-                position="23.5 2.5 12"
+                position="25 2.5 10"
                 radius="1"
                 scale="1.25 1.25 1.25">
         </Entity>
 
         <Entity geometry="primitive: cylinder; height: 4.5"
                 material="src: #wood-texture"
-                position="-23.5 -1 -6"
+                position="-25 -1 -10"
                 radius="0.75">
         </Entity>
 
         <Entity geometry="primitive: sphere" 
                 material="src: #pano; side: double"
-                position="-23.5 2.5 -6"
+                position="-25 2.5 -10"
                 radius="1"
                 scale="1.25 1.25 1.25">
         </Entity>
 
         <Entity geometry="primitive: cylinder; height: 4.5"
                 material="src: #wood-texture"
-                position="-23.5 -1 -12"
+                position="25 -1 -10"
                 radius="0.75">
         </Entity>
 
         <Entity geometry="primitive: sphere" 
                 material="src: #pano; side: double"
-                position="-23.5 2.5 -12"
+                position="25 2.5 -10"
                 radius="1"
                 scale="1.25 1.25 1.25">
         </Entity>
-
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="23.5 -1 -6"
-                radius="0.75">
-        </Entity>
-
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="23.5 2.5 -6"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
-
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="23.5 -1 -12"
-                radius="0.75">
-        </Entity>
-
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="23.5 2.5 -12"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
-
-
 
 
 
         <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
                 material= "color: white"
-                position="-22 1 6"
+                position="-23.5 1 10"
                 rotation="-45 90 0"
-                onClick={() => {camViewdif([0,0,0])}}>
+                onClick={() => {this.camViewdif([-25,2.5,10])}}>
         </Entity>
 
         <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
                 material= "color: white"
-                position="-22 1 -6"
-                rotation="-45 90 0">
+                position="23.5 1 10"
+                rotation="45 90 0"
+                onClick={() => {this.camViewdif([25, 2.5, 10])}}>
+        </Entity>
+
+
+
+        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
+                material= "color: white"
+                position="-23.5 1 -10"
+                rotation="-45 90 0"
+                onClick={() => {this.camViewdif([-25,2.5,-10])}}>
         </Entity>
 
         <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
                 material= "color: white"
-                position="22 1 -6"
-                rotation="45 90 0">
+                position="23.5 1 -10"
+                rotation="45 90 0"
+                onClick={() => {this.camViewdif([25, 2.5, -10])}}>
         </Entity>
 
-        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
-                material= "color: white"
-                position="22 1 6"
-                rotation="45 90 0">
+
+
+
+        <Entity geometry="primitive: cylinder; height: 0.03"
+                material="color: green; transparent: true; opacity: 0.5"
+                position="-25 2.75 10"
+                radius="0.03"
+                onClick={() => {this.camViewdif([-20,2.5, 10])}}
+                >
         </Entity>
+
+
+        <Entity geometry="primitive: cylinder; height: 0.03"
+                material="color: green; transparent: true; opacity: 0.5"
+                position="25 2.75 10"
+                radius="0.03"
+                onClick={() => {this.camViewdif([20, 2.5, 10])}}
+                >
+        </Entity>
+
+
+        <Entity geometry="primitive: cylinder; height: 0.03"
+                material="color: green; transparent: true; opacity: 0.5"
+                position="-25 2.75 -10"
+                radius="0.03"
+                onClick={() => {this.camViewdif([-20, 2.75, -10])}}
+                >
+        </Entity>
+
+
+        <Entity geometry="primitive: cylinder; height: 0.03"
+                material="color: green; transparent: true; opacity: 0.5"
+                position="25 2.75 -10"
+                radius="0.03"
+                onClick={() => {this.camViewdif([20, 2.75, -10])}}
+                >
+        </Entity>
+
 
         <Walls material= "src: #wood-texture" />
 
 
-
-
-
-
-
-           <Navigator changeCamView={ this.camViewdif.bind(this) } />
+        <Navigator changeCamView={ this.camViewdif.bind(this) } />
 
       </Entity>
     </Scene>
