@@ -60,6 +60,8 @@ class BoilerplateScene extends React.Component {
 
         <img id="riceTerrace_pano" src="./assets/riceTerrace_pano.jpg" />
 
+        <video id="diving" autoplay loop="true" src="./assets/360diving.mp4" />
+
       </a-assets>
 
         <Camera position={this.state.cameraPos} >
@@ -177,7 +179,7 @@ class BoilerplateScene extends React.Component {
         </Entity>
 
         <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
+                material="src: #diving; side: double"
                 position="-25 2.5 10"
                 radius="1"
                 scale="1.25 1.25 1.25">
