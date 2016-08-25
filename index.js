@@ -44,6 +44,8 @@ class BoilerplateScene extends React.Component {
         <img id="yosemite2" src="./assets/yosemite2.jpg" />
         <img id="yosemite3" src="./assets/yosemite3.jpg" />
         <img id="yosemite4" src="./assets/yosemite4.jpg" />
+
+        
       </a-assets>
 
         <Camera position={this.state.cameraPos} >
