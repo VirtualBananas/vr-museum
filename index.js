@@ -45,7 +45,21 @@ class BoilerplateScene extends React.Component {
         <img id="yosemite3" src="./assets/yosemite3.jpg" />
         <img id="yosemite4" src="./assets/yosemite4.jpg" />
 
-        
+        <img id="africa1" src="./assets/africa1.jpg" />
+        <img id="africa2" src="./assets/africa2.jpg" />
+        <img id="africa3" src="./assets/africa3.jpg" />
+        <img id="africa4" src="./assets/africa4.jpg" />
+        <img id="africa5" src="./assets/africa5.jpg" />
+
+        <img id="serengeti" src="./assets/serengeti_pano.jpg" />
+
+        <img id="china1" src="./assets/china1.jpg" />
+        <img id="china2" src="./assets/china2.jpg" />
+        <img id="china3" src="./assets/china3.jpg" />
+        <img id="china4" src="./assets/china4.jpg" />
+
+        <img id="riceTerrace_pano" src="./assets/riceTerrace_pano.jpg" />
+
       </a-assets>
 
         <Camera position={this.state.cameraPos} >
@@ -64,18 +78,6 @@ class BoilerplateScene extends React.Component {
                 position="0 5.5 0"
                 rotation="-90 0 0">
         </Entity>
-
-
-
-
-        <Entity geometry="primitive: box; width: 5; height: 5; depth: 0.5" 
-                material="src: #yosemite1"
-                position="0 1.6 -24.7"
-                rotation="0 0 0">
-        </Entity>
-
-
-
 
 
         <Entity geometry="primitive: box; width: 5; height: 5; depth: 0.5" 
@@ -102,12 +104,70 @@ class BoilerplateScene extends React.Component {
                 rotation="0 0 0">
         </Entity>
 
+        <Entity geometry="primitive: box; width: 7.5; height: 5; depth: 0.5" 
+                material="src: #africa1"
+                position="-22 1.6 19.7"
+                rotation="0 0 0">
+        </Entity>
 
-    
+        <Entity geometry="primitive: box; width: 7.5; height: 5; depth: 0.5" 
+                material="src: #africa2"
+                position="-29.7 1.6 5"
+                rotation="0 90 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 7.5; height: 5; depth: 0.5" 
+                material="src: #africa3"
+                position="-29.7 1.6 15"
+                rotation="0 90 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 7.5; height: 5; depth: 0.5" 
+                material="src: #africa5"
+                position="-22 1.6 0.3"
+                rotation="0 0 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 10; height: 5; depth: 0.5" 
+                material="src: #china2"
+                position="-22 1.6 -0.3"
+                rotation="0 0 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 7.5; height: 5; depth: 0.5" 
+                material="src: #china1"
+                position="-29.7 1.6 -5"
+                rotation="0 90 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 7.5; height: 5; depth: 0.5" 
+                material="src: #china3"
+                position="-29.7 1.6 -15"
+                rotation="0 90 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 11.5; height: 5; depth: 0.5" 
+                material="src: #china4"
+                position="-20.5 1.6 -19.7"
+                rotation="0 0 0">
+        </Entity>
+
+        <Entity geometry="primitive: box; width: 20; height: 5; depth: 0.5" 
+                material="src: #serengeti"
+                position="0 1.6 19.7"
+                rotation="0 0 0">
+        </Entity>
+
+        <Entity geometry="primitive: cylinder; openEnded: true; thetaLength: 180" 
+                material="side: double; src: #riceTerrace_pano"
+                position="0 1.6 -19.7"
+                rotation="0 90 0"
+                radius="5"
+                scale="5 5 10">
+        </Entity>
+
 
         <Globe world={"src: #world-texture; side: double"} changeCamView= { this.camViewdif.bind(this) }  />
-        
-
     
 
         <Entity geometry="primitive: cylinder; height: 4.5"
