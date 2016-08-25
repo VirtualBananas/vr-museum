@@ -259,7 +259,7 @@ class BoilerplateScene extends React.Component {
 
         <Entity geometry="primitive: cylinder; height: 0.03"
                 material="color: green; transparent: true; opacity: 0.5"
-                position="-25 2.75 10"
+                position="-25 3.20 10"
                 radius="0.03"
                 onClick={() => {this.camViewdif([-20,2.5, 10])}}
                 >
@@ -268,7 +268,7 @@ class BoilerplateScene extends React.Component {
 
         <Entity geometry="primitive: cylinder; height: 0.03"
                 material="color: green; transparent: true; opacity: 0.5"
-                position="25 2.75 10"
+                position="25 3.20 10"
                 radius="0.03"
                 onClick={() => {this.camViewdif([20, 2.5, 10])}}
                 >
@@ -277,7 +277,7 @@ class BoilerplateScene extends React.Component {
 
         <Entity geometry="primitive: cylinder; height: 0.03"
                 material="color: green; transparent: true; opacity: 0.5"
-                position="-25 2.75 -10"
+                position="-25 3.20 -10"
                 radius="0.03"
                 onClick={() => {this.camViewdif([-20, 2.75, -10])}}
                 >
@@ -286,7 +286,7 @@ class BoilerplateScene extends React.Component {
 
         <Entity geometry="primitive: cylinder; height: 0.03"
                 material="color: green; transparent: true; opacity: 0.5"
-                position="25 2.75 -10"
+                position="25 3.20 -10"
                 radius="0.03"
                 onClick={() => {this.camViewdif([20, 2.75, -10])}}
                 >
