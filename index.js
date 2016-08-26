@@ -13,7 +13,9 @@ import Walls from './public/components/Walls';
 import Globe from './public/components/Globe';
 import Light from './public/components/Light';
 import Floor from './public/components/Floor';
-
+import SphereClickPads from './public/components/SphereClickPad'
+import Placards from './public/components/Placards';
+        //<Placards changeCamView = { this.camViewdif.bind(this) } />
 
 class BoilerplateScene extends React.Component {
 
@@ -226,73 +228,11 @@ class BoilerplateScene extends React.Component {
 
 
 
-        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
-                material= "color: white"
-                position="-23.5 1 10"
-                rotation="-45 90 0"
-                onClick={() => {this.camViewdif([-25,2.5,10])}}>
-        </Entity>
-
-        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
-                material= "color: white"
-                position="23.5 1 10"
-                rotation="45 90 0"
-                onClick={() => {this.camViewdif([25, 2.5, 10])}}>
-        </Entity>
-
-
-
-        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
-                material= "color: white"
-                position="-23.5 1 -10"
-                rotation="-45 90 0"
-                onClick={() => {this.camViewdif([-25,2.5,-10])}}>
-        </Entity>
-
-        <Entity geometry="primitive: box; width: 1.245; height: .75; depth: .0625" 
-                material= "color: white"
-                position="23.5 1 -10"
-                rotation="45 90 0"
-                onClick={() => {this.camViewdif([25, 2.5, -10])}}>
-        </Entity>
-
-
-
-
-        <Entity geometry="primitive: cylinder; height: 0.03; radius: 0.33"
-                material="color: green; transparent: true; opacity: 0.5"
-                position="-25 3.20 10"
-                onClick={() => {this.camViewdif([-20,2.5, 10])}}
-                >
-        </Entity>
-
-
-        <Entity geometry="primitive: cylinder; height: 0.03; radius: 0.33"
-                material="color: green; transparent: true; opacity: 0.5"
-                position="25 3.20 10"
-                onClick={() => {this.camViewdif([20, 2.5, 10])}}
-                >
-        </Entity>
-
-
-        <Entity geometry="primitive: cylinder; height: 0.03; radius: 0.33"
-                material="color: green; transparent: true; opacity: 0.5"
-                position="-25 3.20 -10"
-                onClick={() => {this.camViewdif([-20, 2.75, -10])}}
-                >
-        </Entity>
-
-
-        <Entity geometry="primitive: cylinder; height: 0.03; radius: 0.33"
-                material="color: green; transparent: true; opacity: 0.5"
-                position="25 3.20 -10"
-                onClick={() => {this.camViewdif([20, 2.75, -10])}}
-                >
-        </Entity>
-
+        <Placards changeCamView = { this.camViewdif.bind(this) } />
 
         <Walls material= "src: #wood-texture" />
 
+        <SphereClickPads changeCamView={ this.camViewdif.bind(this) } />
 
         <Navigator changeCamView={ this.camViewdif.bind(this) } />
 
