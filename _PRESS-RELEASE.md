@@ -16,7 +16,7 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## VR World Museum - Travel to Far-Away Lands in Seconds! ##
+## VR World Museum - The Revolutionary Virtual Educational Platform! ##
   VR World Museum allows you see sights from around the world in virtual reality. Simply load the app in a Google Cardboard, and you will soon be immersed in 3-Dimensional images from around the world. You will feel like you're realy there!
 
 ## VR World Museum, a Revolutionary Educational Platform ##
