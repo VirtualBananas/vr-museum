@@ -9,11 +9,9 @@ const Navigator = (props) => {
 
 		return (
 			<Entity onClick={ () => props.changeCamView(position) }
-	      geometry='primitive: cylinder'
+	      geometry='primitive: cylinder; radius: 1.5; height: .015'
 	      material='color: green'
 	      position={position}
-	      radius='1.5'
-	      scale='1 .0625 1'
 	      key={i}>
 	    </Entity>
 		)
