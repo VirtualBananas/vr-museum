@@ -1,4 +1,4 @@
-# Project Name #
+# VR World Museum #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -16,29 +16,32 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+## VR World Museum - Travel to Far-Away Lands in Seconds! ##
+  VR World Museum allows you see sights from around the world in virtual reality. Simply load the app in a Google Cardboard, and you will soon be immersed in 3-Dimensional images from around the world. You will feel like you're realy there!
 
-## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+## VR World Museum, a Revolutionary Educational Platform ##
+  Students will feel feel a stronger sense of engagement with the curriculum. No longer will they simply see images and read from a traditional website. With VR World Museum, they will be transported into the transported into the curriculum itself. They will be able to find themselves standing amidst the Egyptian pyramids, gazing upon the Great Wall of China, and exploring many other exciting locations in virtual reality. 
 
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-
-## Problem ##
-  > Describe the problem your product solves.
+  VR Museum is a virtual reality web app that will allow teachers to bring virtual reality into their curriculim. With VR Museum, students will be able to learn in a virtual environment that greatly improves engagement when compared to learning from traditional methods such as textbooks. Using a smartphone and a Google Cardboard headset, students will be able to travel to locations all around the world and feel like they're really there. With the ability to expand the curriculum as required by the teacher, the lessons can range from geography to math to science. Imagine being able to travel through the various elements of human cell from your school desk. With VR Museum, we aim to make this a reality.
+  
+## Say Goodbye to Boring 2D Static Educational Sites ##
+  In-progress
 
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+  
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  "With VR Museum, learning in the classroom will not only be fun and engaging, but allow for a fully immersive experience. We are confident that it will be an incredibly effective teaching tool" - Tom Aito, CEO, Virtual Bananas.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  Using either an Android smart-phone or Iphone, visit http://www.vr-museum.herokuapp.com. Press on the "goggles" and place the phone in a Google Cardboard. You may navigate through the museum by aiming the cursor at the the circular pads on the floor. Gazing at the click-pads below pictures and videos will allow you to enter into their virtual reality environment.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  "My students show an excitment to learn I had never before seen. Their participation and engagement are way up!" - Anne Chovie, Geography Teacher.
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  The VR World Museum may be visited at http://www.vr-museum.herokuapp.com
+  Open source contribution may be made to our GitHub repo at https://github.com/VirtualBananas/vr-museum
