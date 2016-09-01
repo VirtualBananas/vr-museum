@@ -1,5 +1,7 @@
 import 'aframe';
 import 'babel-polyfill';
+import 'aframe-firebase-component';
+import 'aframe-template-component';
 import {Animation, Entity, Scene} from 'aframe-react';
 
 import React, {Component} from 'react';
@@ -170,7 +172,10 @@ class BoilerplateScene extends Component {
         <video id="userTwoVoice" autoPlay ></video>
       <a-assets>
 
-       
+       <a-mixin id="avatar"
+                geometry="primitive: box; depth: 0.3; height: 0.3; width: 0.3"
+                material="color: #222"></a-mixin>
+
 
         <img id="world-texture" src="./assets/world.jpg" />
         <img id="floor-texture" src="./assets/image2.jpg" />
@@ -361,6 +366,13 @@ class BoilerplateScene extends Component {
                 scale="1.25 1.25 1.25">
         </Entity>
 
+
+        <a-entity id="head" mixin="avatar"
+              wasd-controls
+              firebase-broadcast="componentsOnce: mixin;
+                                  components: position, rotation"
+              position="0 1.8 5">
+       </a-entity>
 
 
         <Placards changeCamView = { this.camViewdif.bind(this) } />
