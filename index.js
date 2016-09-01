@@ -164,8 +164,8 @@ class BoilerplateScene extends Component {
   render () {
     return (
       <Scene >
-      <video id="userOneVoice" autoPlay ></video>
-        <video id="userTwoVoice" autoPlay ></video>
+      <video id="userOneVoice" autoPlay muted="muted" ></video>
+        <video id="userTwoVoice" autoPlay  ></video>
       <a-assets>
 
         <img id="world-texture" src="./assets/world.jpg" />
