@@ -114,7 +114,7 @@ class BoilerplateScene extends Component {
 
         rtcPeerConn.onaddstream = function(e){
             console.log("going to add their stream");
-            userTwoVoice.src = URL.createObjectURL(e.stream);
+            //userTwoVoice.src = URL.createObjectURL(e.stream);
         };
         
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
@@ -124,7 +124,7 @@ class BoilerplateScene extends Component {
             audio: true
         }, function(stream){
             console.log("going to display my stream...");
-            userOneVoice.src = URL.createObjectURL(stream);
+            //userOneVoice.src = URL.createObjectURL(stream);
             rtcPeerConn.addStream(stream);
         }, logError);
     };
