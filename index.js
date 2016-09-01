@@ -36,6 +36,7 @@ class BoilerplateScene extends Component {
 
   }
 
+//== socket io functionality ===//
   componentDidMount(){
     // testing socket io connection
     socket.on('news', (data) => {
@@ -46,8 +47,8 @@ class BoilerplateScene extends Component {
     })
 
 
-    var userOneVoice = document.getElementById('userOneVoice');
-    var userTwoVoice = document.getElementById('userTwoVoice');
+    // var userOneVoice = document.getElementById('userOneVoice');
+    // var userTwoVoice = document.getElementById('userTwoVoice');
     var SIGNAL_ROOM = 'signal_room';
     var ROOM = 'chat'
     var rtcPeerConn; 
@@ -64,6 +65,7 @@ class BoilerplateScene extends Component {
         "chat_room": ROOM,
         "signal_room": SIGNAL_ROOM
     });
+
     // emit signal to start call
     socket.emit('signal', {
         "type": "user_here", 
@@ -130,7 +132,6 @@ class BoilerplateScene extends Component {
     };
 
 
-
      function sendLocalDesc (desc) {
         rtcPeerConn.setLocalDescription(desc, function(){
             console.log("sending local description");
@@ -148,19 +149,16 @@ class BoilerplateScene extends Component {
         console.log(error.name + ": " + error.message);
       };
 
-      socket.on('annouce', function(data){
-        console.log(data.message);
-      });
+      // socket.on('announce', function(data){
+      //   console.log(data.message);
+      // });
 
-      socket.on('message', function(data){
-        console.log(data.author + ": " + data.message);
-      });
-
-
-
-
+      // socket.on('message', function(data){
+      //   console.log(data.author + ": " + data.message);
+      // });//
 
   };
+  //=== end of socket io functionality ===//
 
 
 
