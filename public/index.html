@@ -7,5 +7,95 @@
 <body>
   <div class="scene-container"  style="height: 100%; width: 100%"></div>
   <script src="/build/bundle.js"></script>
+  <script src="//cdn.temasys.com.sg/skylink/skylinkjs/0.6.x/skylink.complete.js"></script>
+
+  <div id="start" >
+    <video id="myvideo" autoplay muted></video>
+  </div>
+  
+  <script type="text/javascript">
+
+		var skylink = new Skylink();
+		//manipulates the debugging logs displayed in the console
+		skylink.setLogLevel(1);
+		//skylink.on(eventName, callback)
+		// 'peerJoined' is an event that occurs when a user enters the room, peedId, 
+		//  peerInfo and isSelf are part of its payload
+		skylink.on('peerJoined', function(peerId, peerInfo, isSelf) {
+		  if(isSelf) return; // We already have a video element for our video and don't need to create a new one.
+		  var vid = document.createElement('video');
+		  vid.autoplay = true;
+		  vid.muted = false; // Added to avoid feedback when testing locally
+		  vid.id = peerId;
+		  document.body.appendChild(vid);
+		});
+
+
+		skylink.on('incomingStream', function(peerId, stream, isSelf) {
+		  if(isSelf) return;
+		  var vid = document.getElementById(peerId);
+		  attachMediaStream(vid, stream);
+		});
+
+		skylink.on('peerLeft', function(peerId) {
+		  var vid = document.getElementById(peerId);
+		  document.body.removeChild(vid);
+		});
+
+		skylink.on('mediaAccessSuccess', function(stream) {
+		  var vid = document.getElementById('myvideo');
+		  attachMediaStream(vid, stream);
+		});
+
+		//KEY ID: 91677f8c-96aa-4293-923f-0a7bf63cabe6 SECRET: 8uhsq30rw769l
+
+		skylink.init({
+		  apiKey: '91677f8c-96aa-4293-923f-0a7bf63cabe6',//'52a88d04-cc43-4e3d-b911-ead23a5fa0c8', // Get your own key at developer.temasys.com.sg
+		  defaultRoom: 'GogabE'//getRoomId()
+		}, function (error, success) {
+		  if (error) {
+		    document.getElementById('status').innerHTML = 'Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error);
+		  } else {
+		       document.getElementById('status').innerHTML = 'Room information has been loaded. Room is ready for user to join.';
+		    document.getElementById('start').style.display = 'block';
+		  }
+		});
+
+		(function start() {
+		 // removed since the event is linked to the button, which will no longer be used.
+		 // event.target.style.visibility = 'hidden'; 
+		  skylink.joinRoom({
+		    audio: true,
+		    video: false
+		  }, function (error, success) {
+		    if (error) {
+		      document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
+		  'Error: ' + (error.error.message || error.error);
+		    } else {
+		      //document.getElementById('status').innerHTML = 'Joined room.';
+		      console.log('Joined Room')
+		    }
+		  });
+		})();
+
+
+		/* Helper functions */
+
+		function getRoomId() {
+		  var roomId = document.cookie.match(/roomId=([a-z0-9-]{36})/);
+		  if(roomId) {
+		    return roomId[1];
+		  }
+		  else {
+		    roomId = skylink.generateUUID();
+		    var date = new Date();
+		    date.setTime(date.getTime() + (30*24*60*60*1000));
+		    document.cookie = 'roomId=' + roomId + '; expires=' + date.toGMTString() + '; path=/';
+		    return roomId;
+		  }
+		};
+	  
+  </script>
+     
 </body>
 </html>
