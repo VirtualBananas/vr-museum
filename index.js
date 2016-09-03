@@ -16,8 +16,9 @@ import Floor from './public/components/Floor';
 import SphereClickPads from './public/components/SphereClickPad'
 import Placards from './public/components/Placards';
 import io from 'socket.io-client/socket.io';
+//import Skylink from 'skylinkjs';
 
-var socket = io();     
+//var socket = io();     
 
 class BoilerplateScene extends Component {
 
@@ -34,8 +35,12 @@ class BoilerplateScene extends Component {
 
   }
 
+
+
 //== socket io functionality ===//
   componentDidMount(){
+   // var skylink = new Skylink()
+/*
     // testing socket io connection
     socket.on('news', (data) => {
         console.log(data);
@@ -154,20 +159,25 @@ class BoilerplateScene extends Component {
       // socket.on('message', function(data){
       //   console.log(data.author + ": " + data.message);
       // });//
-
-  };
+    */
+  }; 
   //=== end of socket io functionality ===//
-
-
-
 
   render () {
     return (
-      <Scene >
-      <audio id="userOneVoice" autoPlay muted="muted" ></audio>
-        <audio id="userTwoVoice" autoPlay  ></audio>
-      <a-assets>
+    
+    <Scene >
+     <script src="//cdn.temasys.com.sg/skylink/skylinkjs/0.6.x/skylink.complete.js"></script>
 
+     <script type="text/javascript">
+       var skylink = new Skylink();  
+       console.log("this is the skylink***********");
+     </script>
+
+      <audio id="userOneVoice" autoPlay muted="muted" ></audio>
+      <audio id="userTwoVoice" autoPlay  ></audio>
+     
+      <a-assets>
         <img id="world-texture" src="./assets/world.jpg" />
         <img id="floor-texture" src="./assets/image2.jpg" />
         <img id="ceiling-texture" src="./assets/color-rush.png" />
@@ -192,13 +202,9 @@ class BoilerplateScene extends Component {
         <img id="china4" src="./assets/china4.jpg" />
 
         <img id="riceTerrace_pano" src="./assets/riceTerrace_pano.jpg" />
-
-        
-
       </a-assets>
 
         <Camera position={this.state.cameraPos} >
-
           <Cursor fuse="true" max-distance="10" timeout="1500" color="red"/>
         </Camera>
 
