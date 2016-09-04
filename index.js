@@ -16,10 +16,9 @@ import Floor from './public/components/Floor';
 import SphereClickPads from './public/components/SphereClickPad'
 import Placards from './public/components/Placards';
 import io from 'socket.io-client/socket.io';
-//import Skylink from 'skylinkjs';
 
-//var socket = io();     
-
+const socket = io();
+const ROOM = 'MUSEUM';
 class BoilerplateScene extends Component {
 
   constructor(props) {
@@ -33,147 +32,121 @@ class BoilerplateScene extends Component {
     let pos3 = position[2];
     this.setState({ cameraPos: [pos1, pos2, pos3]});
 
-  }
+  };
 
-
-
-
-//== socket io functionality ===//
   componentDidMount(){
-   // var skylink = new Skylink()
-/*
-    // testing socket io connection
-    socket.on('news', (data) => {
-        console.log(data);
-        socket.emit('my other event', {
-            my: 'Im out here'
-        });
-    })
+    console.log('CHECKING FOR AFRAME:==', AFRAME)
 
+    AFRAME.registerSystem('broadcast', {
+        init: function () {
+            let sceneEl = this.sceneEl;
+            
+            // var url = sceneEl.getAttribute('broadcast').url;
 
-    var userOneVoice = document.getElementById('userOneVoice');
-    var userTwoVoice = document.getElementById('userTwoVoice');
-    var SIGNAL_ROOM = 'signal_room';
-    var ROOM = 'chat'
-    var rtcPeerConn; 
+            // this in init is not the same as in the other methods
+            // adding socket io to the system .
+            this.socket = socket;
 
-    var configuration = {
-      'iceServers': [{
-        'url': 'stun:stun.l.google.com:19302'
-      }]
-    };
-
-    
-    // join the rooms
-    socket.emit('ready', {
-        "chat_room": ROOM,
-        "signal_room": SIGNAL_ROOM
-    });
-
-    // emit signal to start call
-    socket.emit('signal', {
-        "type": "user_here", 
-        "message": 'Are you ready for a call?', 
-        "room": SIGNAL_ROOM
-    });
-
-    socket.on('signaling_message', function(data){
-        console.log('data in signaling_message', data.type);
-        if (!rtcPeerConn) {
-            startSignaling();
-        } 
-        if (data.type !== "user_here") {
-            var message = JSON.parse(data.message);
-            if (message.sdp) {
-                rtcPeerConn.setRemoteDescription(new RTCSessionDescription(message.sdp), function(){
-                    if (rtcPeerConn.remoteDescription.type === 'offer') {
-                        rtcPeerConn.createAnswer(sendLocalDesc, logError);
-                    }
-                }, logError)
-            }else{
-                rtcPeerConn.addIceCandidate(new RTCIceCandidate(message.candidate));
-            }
-        }
-    });
-
-    function startSignaling(){
-        console.log("startSignaling signaling....");
-        rtcPeerConn = new webkitRTCPeerConnection(configuration);
-        rtcPeerConn.onicecandidate = function(e){
-            e.preventDefault();
-            if(e.candidate){
-                socket.emit('signal', {
-                    "type": "ice candidate",
-                    "message": JSON.stringify({
-                        'candidate': e.candidate
-                    }),
-                    "room": SIGNAL_ROOM
-                });
-            }
-            console.log("completed that ice canditate....");
-        }
-
-        rtcPeerConn.onnegotiationneeded = function(){
-            console.log("on negotiation called");
-            rtcPeerConn.createOffer(sendLocalDesc, logError);
-        };
-
-        rtcPeerConn.onaddstream = function(e){
-            console.log("going to add their stream");
-            userTwoVoice.src = URL.createObjectURL(e.stream);//
-        };
-        
-        navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-        navigator.getUserMedia({
-            video: false,
-            audio: true
-        }, function(stream){
-            console.log("going to display my stream...");
-            userOneVoice.src = URL.createObjectURL(stream);
-            rtcPeerConn.addStream(stream);
-        }, logError);
-    };
-
-
-     function sendLocalDesc (desc) {
-        rtcPeerConn.setLocalDescription(desc, function(){
-            console.log("sending local description");
-            socket.emit("signal", {
-                "type": "SDP",
-                "message": JSON.stringify({
-                    'sdp': rtcPeerConn.localDescription
-                }),
-                "room": SIGNAL_ROOM
+            this.socket.emit('ready', {
+                "chat_room": ROOM
             });
-        }, logError);
-      };
 
-      function logError(error){
-        console.log(error.name + ": " + error.message);
-      };
+            this.socket.on('allAvatars', function (data) {
 
-      // socket.on('announce', function(data){
-      //   console.log(data.message);
-      // });
+                console.log("this is the data from broadcast:==", data)
 
-      // socket.on('message', function(data){
-      //   console.log(data.author + ": " + data.message);
-      // });//
-    */
-  }; 
-  //=== end of socket io functionality ===//
+              data.Queue.forEach(function syncState (entity) {
+                var el = sceneEl.querySelector('#' + entity.id);
+
+                if (!el) {
+                  var parentEl = sceneEl.querySelector('#' + entity.parentId) || sceneEl;
+                  el = document.createElement('a-entity');
+                  el.setAttribute('id', entity.id);
+                  parentEl.appendChild(el);
+                }
+
+                entity.components.forEach(function setAttribute (component) {
+                  el.setAttribute(component[0], component[1]);
+                });
+
+              });
+            });
+
+           
+           console.log('TESTING FOR sendQueue IN registerSystem', this)
+        },
+
+        sendQueue: {room: ROOM , Queue:[]},
+
+        addSend: function (el, sendComponents) {
+            if (!el.getAttribute('id')) {
+              el.setAttribute('id', guid());
+            }
+            console.log('TESTING FOR el IN addSend', el)
+            console.log('TESTING FOR sendComponents IN addSend', sendComponents)
+            this.sendQueue.Queue.push(function send () {
+              return {
+                id: el.getAttribute('id'),
+                parentId: el.parentNode.getAttribute('id'),
+                components: sendComponents.map(function getAttribute (componentName) {
+                  return [componentName, el.getComputedAttribute(componentName)];
+                })
+              };
+            });
+        },
+        // this emits the broadcast every 10ms.
+      tick: function (time, dt) {
+
+        if (time - this.time < 10) { return; }
+        this.time = time;
+
+
+
+        this.socket.emit('broadcast', {room: ROOM, Queue: this.sendQueue.Queue.map(function call (getSend) {
+          return getSend();
+        })});
+      }
+    });
+
+/**
+ * Broadcast component for A-Frame.
+ */
+    AFRAME.registerComponent('broadcast', {
+          schema: {
+            url: {type: 'string'},
+            send: {type: 'array', default: ['position', 'rotation']}
+          },
+
+          init: function () {
+            var data = this.data;
+            var el = this.el;
+            var system = this.system;
+            
+            if (el.isScene || !data.send.length) { return; }
+            system.prototype.addSend(el, data.send);
+          }
+        });
+
+        function guid() {
+          var text = '';
+          var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+          for (var i = 0; i < 5; i++) {
+            text += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          return text;
+        }
+}
+
 
   render () {
     return (
-    
-    <Scene >
-   
-
-      <audio id="userOneVoice" autoPlay muted="muted" ></audio>
-      <audio id="userTwoVoice" autoPlay  ></audio>
-     
+      <Scene broadcast="">
+      
       <a-assets>
+
+       
+
+
         <img id="world-texture" src="./assets/world.jpg" />
         <img id="floor-texture" src="./assets/image2.jpg" />
         <img id="ceiling-texture" src="./assets/color-rush.png" />
@@ -198,9 +171,20 @@ class BoilerplateScene extends Component {
         <img id="china4" src="./assets/china4.jpg" />
 
         <img id="riceTerrace_pano" src="./assets/riceTerrace_pano.jpg" />
+
+        
+
       </a-assets>
 
+        <Entity broadcast="send: geometry, material, position, rotation"
+             look-controls wasd-controls
+              geometry="primitive: box"
+              material="color: #222"
+              position="0 1.8 5">
+        </Entity>
+
         <Camera position={this.state.cameraPos} >
+
           <Cursor fuse="true" max-distance="10" timeout="1500" color="red"/>
         </Camera>
 
@@ -359,7 +343,6 @@ class BoilerplateScene extends Component {
                 scale="1.25 1.25 1.25">
         </Entity>
 
-
         <Placards changeCamView = { this.camViewdif.bind(this) } />
 
         <Walls material= "src: #wood-texture" />
@@ -371,9 +354,6 @@ class BoilerplateScene extends Component {
       </Entity>
 
     </Scene>
-
-
-    
 
     );
   }
