@@ -37,6 +37,7 @@ class BoilerplateScene extends Component {
 
 
 
+
 //== socket io functionality ===//
   componentDidMount(){
    // var skylink = new Skylink()
@@ -167,12 +168,7 @@ class BoilerplateScene extends Component {
     return (
     
     <Scene >
-     <script src="//cdn.temasys.com.sg/skylink/skylinkjs/0.6.x/skylink.complete.js"></script>
-
-     <script type="text/javascript">
-       var skylink = new Skylink();  
-       console.log("this is the skylink***********");
-     </script>
+   
 
       <audio id="userOneVoice" autoPlay muted="muted" ></audio>
       <audio id="userTwoVoice" autoPlay  ></audio>
