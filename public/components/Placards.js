@@ -11,7 +11,6 @@ const Placards = (props) => {
 									  ];
 
 	const placards = positions.map((positions, i) => {
-
 		return (
 			<Entity 
 				geometry = "primitive: box; width: 1.245; height: 0.75; depth: 0.0625"
@@ -25,7 +24,7 @@ const Placards = (props) => {
 
 	});
 
-		return (<Entity> {placards} </Entity>)
+	return (<Entity> {placards} </Entity>)
 };
 
 export default Placards

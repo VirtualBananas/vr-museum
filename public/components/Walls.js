@@ -37,7 +37,8 @@ const Walls = ({ material}) => {
 	      key={i}>
 	    </Entity>
 		)
-	})
+	});
+	
 	return (
 		<Entity>
 			<Entity geometry="primitive: cylinder; openEnded: true; thetaLength: 180" 

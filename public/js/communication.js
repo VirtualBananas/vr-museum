@@ -36,7 +36,7 @@ var skylink = new Skylink();
 		  if (error) {
 		    console.log('Failed retrieval for room information.<br>Error: ' + (error.error.message || error.error));
 		  } else {
-		    console.log('Room information has been loaded. Room is ready for user to join.');
+		    // console.log('Room information has been loaded. Room is ready for user to join.');
 		  }
 		});
 
@@ -47,7 +47,7 @@ var skylink = new Skylink();
 		    if (error) {
 		      console.log('Failed joining room.<br>' +'Error: ' + (error.error.message || error.error));
 		    } else {
-		      console.log('Joined Room')
+		      // console.log('Joined Room')
 		    }
 		  });
 		})();

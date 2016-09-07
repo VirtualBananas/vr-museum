@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 var User = require('./db/models/usermodel');
 
-// We need to add a configuration to our proxy server,
+
 
 // as we are now proxying outside localhost
 var proxy = httpProxy.createProxyServer({
@@ -17,45 +17,25 @@ var proxy = httpProxy.createProxyServer({
 });
 
 // connection for production database
-mongoose.connect('mongodb://museum:museum12345@ds043027.mlab.com:43027/vrmuseum');
-
-
+// mongoose.connect('mongodb://museum:museum12345@ds043027.mlab.com:43027/vrmuseum');
 // // connection local
-// mongoose.connect('mongo://localhost/users');
-
-
+mongoose.connect('mongodb://localhost/users');
 app.use(express.static(publicPath));
-
-
 
 //notice that you will not see a physical bundle.js because webpack-dev-server runs it from memory
 var bundle = require('./server/compiler.js')
 bundle()
 
-
+// socket connection
 io.on('connection', function(socket){
-
-  socket.emit('news', { hello: 'World io' });
-
-  socket.on('my other event', function (data) {
-  console.log(data);
-  });
-
-   
-
+// join room
   socket.on('ready', function(data){
-    socket.join(data.chat_room);
-
-    socket.to(data.chat_room).broadcast.emit('announce', {
-      message: 'New client in the ' + data.chat_room + 'room.'
-    });
+    socket.join(data.museum);
   });
 
   socket.on('broadcast', function (data) {
-    console.log("data is broadcast", data)
-
+    console.log('data in side broadcast', data)
     socket.to(data.room).broadcast.emit('allAvatars', data);
-
   });
 
 })

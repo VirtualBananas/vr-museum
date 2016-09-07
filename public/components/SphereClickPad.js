@@ -23,7 +23,6 @@ const SphereClickPads = (props) => {
 		)
 	});
 
-console.log('pads', pads)
 	return (
 		<Entity>{ pads }</Entity>
 	)
