@@ -9,10 +9,8 @@ const allPictures = [
 		position: "22 1.6 0.3", 
 		rotation:"0 0 0"
 	}, 
-
 	{ geometry: "primitive: box; width: 5; height: 5; depth: 0.5", material:"src: #yosemite2", position: "29.7 1.6 6", rotation: "0 90 0"
 	},
-
 	{ geometry: "primitive: box; width: 5; height: 5; depth: 0.5", material: "src: #yosemite3", position: "29.7 1.6 14", rotation: "0 90 0"
 	}, 
 	{ geometry: "primitive: box; width: 5; height: 5; depth: 0.5", material: "src: #yosemite4", position: "22 1.6 19.7", rotation: "0 0 0"
@@ -37,9 +35,6 @@ const allPictures = [
 	}
 ];
 
-
-
-
 const Pictures = ({ material}) => {
 
 	const createdAllPictures = allPictures.map((obj, i) => {
@@ -55,17 +50,16 @@ const Pictures = ({ material}) => {
 
 	return (
 		<Entity>
-			
 			<Entity geometry="primitive: cylinder; openEnded: true; thetaLength: 180" 
-                material="side: double; src: #riceTerrace_pano"
-                position="0 1.6 -19.7"
-                rotation="0 90 0"
-                radius="5"
-                scale="5 5 10">
+        material="side: double; src: #riceTerrace_pano"
+        position="0 1.6 -19.7"
+        rotation="0 90 0"
+        radius="5"
+        scale="5 5 10">
       </Entity>
       { createdAllPictures }
 		</Entity>
-	)
+	);
 }
 
 export default Pictures;
