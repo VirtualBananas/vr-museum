@@ -8,7 +8,7 @@ export default () => {
 			<img id="world-texture" src="./assets/world.jpg" />
       <img id="floor-texture" src="./assets/image2.jpg" />
       <img id="ceiling-texture" src="./assets/color-rush.png" />
-      <img id="wood-texture" src="./assets/wood_1.jpg" />
+      <img id="wood-texture" src="./assets/stoneWall.jpg" />
 
       <img id="ancient1" src="./assets/photos/ancient_1.jpg" />
       <img id="ancient2" src="./assets/photos/ancient_2.jpg" />
