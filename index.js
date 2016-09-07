@@ -21,17 +21,31 @@ import AframeConfig from './public/js/AframeMultiuserConfig';
 
 class App extends Component {
 
-  constructor(props) {
+
+constructor(props) {
     super(props);
-    this.state = { cameraPos: [0, 0, 10]}
+    this.state = { cameraPos: [0, 0, 10],
+                   clickReady: true
+                 }
   }
-// Change camera view state
-  camViewdif(position) {
-    let pos1 = position[0];
-    let pos2 = 2;
-    let pos3 = position[2];
-    this.setState({ cameraPos: [pos1, pos2, pos3]});
-  };
+
+  camViewdif(position){
+    
+
+    if(this.state.clickReady === true){
+        let pos1 = position[0];
+        let pos2 = 2;
+        let pos3 = position[2];
+        this.setState({ cameraPos: [pos1, pos2, pos3]});
+
+        this.setState({clickReady: false});
+        var that = this;
+        setTimeout(function(){that.setState({clickReady: true})}, 2000);
+    }
+    }
+  
+
+
 
   componentDidMount() {
     AFRAME.registerSystem('broadcast', AframeConfig.system);
