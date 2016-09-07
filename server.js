@@ -17,9 +17,9 @@ var proxy = httpProxy.createProxyServer({
 });
 
 // connection for production database
-// mongoose.connect('mongodb://museum:museum12345@ds043027.mlab.com:43027/vrmuseum');
+mongoose.connect('mongodb://museum:museum12345@ds043027.mlab.com:43027/vrmuseum');
 // // connection local
-mongoose.connect('mongodb://localhost/users');
+// mongoose.connect('mongodb://localhost/users');
 app.use(express.static(publicPath));
 
 //notice that you will not see a physical bundle.js because webpack-dev-server runs it from memory
