@@ -17,7 +17,6 @@ const Navigator = (props) => {
 		)
 	});
 
-	console.log('navCircles', navCircles)
 	return (
 		<Entity>{ navCircles }</Entity>
 	)
