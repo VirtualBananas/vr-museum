@@ -1,7 +1,7 @@
 import { Entity, Animation } from 'aframe-react';
 import React from 'react';
 
-const Globe = ({ world ,changeCamView }) => {
+const Globe = ({ world, changeCamView }) => {
 
 	return (
 		<Entity>

@@ -15,7 +15,9 @@ import Floor from './public/components/Floor';
 import SphereClickPads from './public/components/SphereClickPad'
 import Placards from './public/components/Placards';
 import Pictures from './public/components/Pictures';
-import AframeConfig from './public/js/AframeMultiuserConfig'
+import Ceiling from './public/components/Ceiling';
+import AframeAssets from './public/components/AframeAssets';
+import AframeConfig from './public/js/AframeMultiuserConfig';
 
 class App extends Component {
 
@@ -23,16 +25,15 @@ class App extends Component {
     super(props);
     this.state = { cameraPos: [0, 0, 10]}
   }
-
-  camViewdif(position){
+// Change camera view state
+  camViewdif(position) {
     let pos1 = position[0];
     let pos2 = 2;
     let pos3 = position[2];
     this.setState({ cameraPos: [pos1, pos2, pos3]});
-
   };
 
-  componentDidMount(){
+  componentDidMount() {
     AFRAME.registerSystem('broadcast', AframeConfig.system);
  // Broadcast component for A-Frame.
     AFRAME.registerComponent('broadcast', AframeConfig.component)
@@ -42,104 +43,25 @@ class App extends Component {
   render () {
     return (
       <Scene broadcast="">
-      
-      <a-assets>
-        <img id="world-texture" src="./assets/world.jpg" />
-        <img id="floor-texture" src="./assets/image2.jpg" />
-        <img id="ceiling-texture" src="./assets/color-rush.png" />
-        <img id="wood-texture" src="./assets/wood_1.jpg" />
-        <img id="pano" src="./assets/pano_full.jpg" />
-        <img id="yosemite1" src="./assets/yosemite1.jpg" />
-        <img id="yosemite2" src="./assets/yosemite2.jpg" />
-        <img id="yosemite3" src="./assets/yosemite3.jpg" />
-        <img id="yosemite4" src="./assets/yosemite4.jpg" />
-        <img id="africa1" src="./assets/africa1.jpg" />
-        <img id="africa2" src="./assets/africa2.jpg" />
-        <img id="africa3" src="./assets/africa3.jpg" />
-        <img id="africa4" src="./assets/africa4.jpg" />
-        <img id="africa5" src="./assets/africa5.jpg" />
-        <img id="serengeti" src="./assets/serengeti_pano.jpg" />
-        <img id="china1" src="./assets/china1.jpg" />
-        <img id="china2" src="./assets/china2.jpg" />
-        <img id="china3" src="./assets/china3.jpg" />
-        <img id="china4" src="./assets/china4.jpg" />
-        <img id="riceTerrace_pano" src="./assets/riceTerrace_pano.jpg" />
-      </a-assets>
-
+        <a-assets>
+         <AframeAssets /> 
+        </a-assets>
+      <Entity>
         <Camera  position={this.state.cameraPos} >
           <Cursor fuse="true" max-distance="10" timeout="1500" color="red"/>
         </Camera>
         <Sky/>
         <Light />
-      <Entity>
-        <Floor material="src: #floor-texture" />
-
-        <Entity geometry="primitive: box; width: 60; height: 50" 
-                material="src: #ceiling-texture; transparent: true; opacity: 0.3"
-                position="0 5.5 0"
-                rotation="-90 0 0">
-        </Entity>
-
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="-25 -1 10"
-                radius="0.75">
-        </Entity>
-
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="-25 2.5 10"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
-
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="25 -1 10"
-                radius="0.75">
-        </Entity>
-
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="25 2.5 10"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
-
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="-25 -1 -10"
-                radius="0.75">
-        </Entity>
-
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="-25 2.5 -10"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
-
-        <Entity geometry="primitive: cylinder; height: 4.5"
-                material="src: #wood-texture"
-                position="25 -1 -10"
-                radius="0.75">
-        </Entity>
-
-        <Entity geometry="primitive: sphere" 
-                material="src: #pano; side: double"
-                position="25 2.5 -10"
-                radius="1"
-                scale="1.25 1.25 1.25">
-        </Entity>
-
-        <Globe world={"src: #world-texture; side: double"} changeCamView= { this.camViewdif.bind(this) }  />
+        <Ceiling />
         <Walls material= "src: #wood-texture" />
+        <Pictures />
+        <Globe world={"src: #world-texture; side: double"} changeCamView= { this.camViewdif.bind(this) }  />
+        <Floor material="src: #floor-texture" />
         <Placards changeCamView = { this.camViewdif.bind(this) } />
         <SphereClickPads changeCamView={ this.camViewdif.bind(this) } />
         <Navigator changeCamView={ this.camViewdif.bind(this) } />
       </Entity>
     </Scene>
-
     );
   }
 }
