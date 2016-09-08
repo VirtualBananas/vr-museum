@@ -58,16 +58,21 @@ class App extends Component {
       <Entity>
         <Camera  position={this.state.cameraPos} >
           <Cursor fuse="true" max-distance="10" timeout="1500" color="red"/>
-        </Camera>
+        </Camera>  
         <Sky/>
         <Light />
         <Ceiling />
         <Walls material= "src: #wood-texture" />
         <Pictures />
-        <Globe world={"src: #world-texture; side: double"} changeCamView= { this.camViewdif.bind(this) }  />
+        <Entity scale="0.00008 0.00008 0.00008" position="0 1 0" obj-model="obj: #map-rome-obj; mtl: #map-rome-mtl"></Entity>
+        <Entity
+          geometry="primitive: cylinder"
+          material="color: #7e7e7F"
+          position="0 -1.5 0"
+          radius="1.5"
+          scale="2 4.5 2">
+      </Entity>
         <Floor material="src: #floor-texture" />
-        <Placards changeCamView = { this.camViewdif.bind(this) } />
-        <SphereClickPads changeCamView={ this.camViewdif.bind(this) } />
         <Navigator changeCamView={ this.camViewdif.bind(this) } />
       </Entity>
     </Scene>

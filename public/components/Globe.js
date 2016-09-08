@@ -23,7 +23,7 @@ const Globe = ({ world, changeCamView }) => {
 	    </Entity>
 
 	    <Entity onClick={ () => changeCamView([0, 2, 0]) } geometry="primitive: cylinder"
-        material="color: purple"
+        material="color: #7e7e7F"
         position="0 -1.5 0"
         radius="1.5"
         scale="2 0.75 2" 
