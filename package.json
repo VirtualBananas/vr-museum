@@ -30,8 +30,7 @@
     "webpack-hot-middleware": "^2.9.1"
   },
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors"
+    "start": "node server.js"
   },
   "keywords": [
     "aframe",
