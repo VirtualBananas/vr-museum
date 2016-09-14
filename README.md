@@ -3,10 +3,10 @@
 Explore the Roman Colosseum in VR and interact with users from around the world. Designed for Google Cardboard.
 
   1. Visit this link on your phone: [vr-museum.herokuapp.com](https://vr-museum.herokuapp.com)
-  2. Click and drag mouse to look around. Move around with your WASD keys. 
-  3. Select the type of music you want to listen to.
-  4. Drag cursor over the album cover for the song you want to listen to. 
-  5. Enjoy listening to music in outer space!
+  2. Enter VR mode on your phone by clicking the button in the bottom right corner.
+  3. Put your phone in Google Cardboard.
+  4. Gaze at the grey circles on the ground to move around.
+  5. Enjoy exploring the Colosseum!
 
 ![Image of Colosseum VR](https://cloud.githubusercontent.com/assets/17284403/18498509/c13ca410-79eb-11e6-824e-1d53abe928c2.png)
 
