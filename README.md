@@ -14,8 +14,7 @@ Colosseum VR is a web-based VR application built with A-frame, React, Express, S
 
 ## Team
 
-  - __Scrum Master__: Ralston Louie
-  - __Development Team Members__: Arnoldo Munoz and Jorge Carapia 
+  - Ralston Louie, Arnoldo Munoz, and Jorge Carapia 
 
 ## Local Development
 
