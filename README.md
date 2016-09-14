@@ -2,7 +2,7 @@
 
 Explore the Roman Colosseum in VR and interact with users from around the world. Designed for Google Cardboard.
 
-  1. Visit this link on your phone: [vr-museum.herokuapp.com](https://vr-museum.herokuapp.com)
+  1. Visit this link on your phone: [https://vr-museum.herokuapp.com](https://vr-museum.herokuapp.com)
   2. Enter VR mode on your phone by clicking the button in the bottom right corner.
   3. Put your phone in Google Cardboard.
   4. Gaze at the grey circles on the ground to move around.
