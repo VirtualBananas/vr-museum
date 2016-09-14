@@ -12,6 +12,11 @@ Explore the Roman Colosseum in VR and interact with users from around the world.
 
 Colosseum VR is a web-based VR application built with A-frame, React, Express, Socket.io, and SkylinkJS/WebRTC.
 
+## Team
+
+  - __Scrum Master__: Ralston Louie
+  - __Development Team Members__: Arnoldo Munoz and Jorge Carapia 
+
 ## Local Development
 
 ### Step 1: Install dependencies
