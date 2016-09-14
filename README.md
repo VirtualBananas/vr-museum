@@ -19,7 +19,7 @@ Colosseum VR is a web-based VR application built with A-frame, React, Express, S
 From within the root directory:
 
 ```
-npm install
+$ npm install
 ```
 ### Step 2: Install Webpack
 
@@ -29,6 +29,6 @@ $ npm install -g webpack
 ### Step 3: Run server
 
 ```
-npm start
+$ npm start
 ```
 
