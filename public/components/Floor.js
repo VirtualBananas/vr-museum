@@ -6,7 +6,7 @@ const Floor = ({material}) => {
 	return (
 		<Entity>
 			<Entity geometry="primitive: plane; width: 60; height: 50" 
-        material="color: #7e7e7f"
+        material="color: #72757c"
         position="0 -2 0"
         rotation="-90 0 0">
       </Entity>	
