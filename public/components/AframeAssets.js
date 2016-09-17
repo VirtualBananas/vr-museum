@@ -1,10 +1,41 @@
 import 'aframe';
+import 'aframe-template-component';
 import React from 'react';
 import {Entity} from 'aframe-react';
 
 export default () => {
 	return(
 		<div>
+
+    <a-mixin id="avatar"
+                geometry="primitive: box; depth: 0.3; height: 0.3; width: 0.3"
+                material="color: #222"
+                template="src: #avatar-template"></a-mixin>
+
+      <a-mixin id="arm" geometry="primitive: box; depth: 0.08; height: 0.5; width: 0.08"
+                          material="color: #222; shader: flat"></a-mixin>
+      <a-mixin id="eye" geometry="primitive: circle"
+                          material="shader: flat; side: double"></a-mixin>
+
+      <script id="avatar-template" type="text/html-template">
+          <a-entity rotation="0 180 0">
+            <a-entity mixin="eye" geometry="radius: 0.08"
+                      material="shader: flat; side: double"
+                      position="-0.1 0.225 0.15">
+              <a-entity mixin="eye" geometry="radius: 0.02"
+                        material="color: #222"
+                        position="0 0 0.03"></a-entity>
+            </a-entity>
+            <a-entity mixin="eye" geometry="radius: 0.08" position="0.1 0.225 0.15">
+              <a-entity mixin="eye" geometry="radius: 0.02"
+                        material="color: #222" position="0 0 0.03"></a-entity>
+            </a-entity>
+          </a-entity>
+          <a-entity class="arms" position="0 -0.3 0">
+            <a-entity mixin="arm" position="-0.3 -0.25 0" rotation="0 0 -10"></a-entity>
+            <a-entity mixin="arm" position="0.3 -0.25 0" rotation="0 0 10"></a-entity>
+          </a-entity>
+        </script>
 
 	<img id="world-texture" src="./assets/world.jpg" />
       <img id="floor-texture" src="./assets/image2.jpg" />

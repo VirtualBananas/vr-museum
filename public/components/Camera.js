@@ -8,7 +8,7 @@ class Camera extends Component {
 	render(){
 		return (
 		  <Entity>
-		    <Entity broadcast="send: geometry, material, position, rotation" mixin="avatar" position={this.props.position} camera="userHeight: 1.8" look-controls wasd-controls {...this.props}/>
+		  	<Entity broadcast="send: mixin, position, rotation" mixin="avatar" position={this.props.position} camera="userHeight: 1.8" look-controls wasd-controls {...this.props}/>
 		  </Entity>
 		);
 	}
