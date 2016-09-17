@@ -6,7 +6,7 @@ const Placards = (props) => {
 //position matrix are triples with the format [[x, y, z], [rotatio x, rotation y, rotation z ], [camera position after click]]
 	const positions = [ [[-23.5, 1, 10], [-45, 90, 0], [-25, 2.5, 10]],
 									    [[23.5, 1, 10], [45, 90, 0], [25, 2.5, 10]], 
-									    [[-23.5, 1, -10], [-45, 90, 0], [-25, 2.5, 10]], 
+									    [[-23.5, 1, -10], [-45, 90, 0], [-25, 2.5, -10]], 
 									    [[23.5, 1, -10], [45, 90, 0], [25, 2.5, -10]]
 									  ];
 

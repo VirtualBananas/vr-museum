@@ -9,7 +9,7 @@ export default () => {
 	<img id="world-texture" src="./assets/world.jpg" />
       <img id="floor-texture" src="./assets/image2.jpg" />
       <img id="ceiling-texture" src="./assets/color-rush.png" />
-      <img id="wood-texture" src="./assets/stoneWall.jpg" />
+      <img id="stone-texture" src="./assets/stoneWall.jpg" />
 
       <img id="ancient1" src="./assets/photos/ancient_1.jpg" />
       <img id="ancient2" src="./assets/photos/ancient_2.jpg" />
@@ -40,6 +40,11 @@ export default () => {
       <img id="modern3" src="./assets/photos/modern_3.jpg" />
       <img id="modern4" src="./assets/photos/modern_4.jpg" />
       <img id="modern5" src="./assets/photos/modern_5.jpg" />
+
+      <img id="ancient360" src="./assets/360_photos/360_Colosseum_CloseUp_1.jpg" />
+      <img id="renaissance360" src="./assets/360_photos/360_Colosseum_Arch_1.jpg" />
+      <img id="WWII360" src="./assets/360_photos/360_Colosseum_Ext_3.jpg" />
+      <img id="modern360" src="./assets/360_photos/360_Colosseum_Ext_1.jpg" />
 
       <img id="modernPanoInt" src="./assets/photos/modern_pano_int.jpg" />
 
