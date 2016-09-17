@@ -62,8 +62,68 @@ class App extends Component {
         <Sky/>
         <Light />
         <Ceiling />
-        <Walls material= "src: #wood-texture" />
+        <Walls material= "src: #stone-texture" />
         <Pictures />
+
+        <Entity geometry="primitive: cylinder; height: 4.5"
+                material="src: #stone-texture"
+                position="25 -1 10"
+                radius="0.75">
+        </Entity>
+
+        <Entity geometry="primitive: sphere" 
+                material="src: #ancient360; side: double"
+                rotation="0 215 0"
+                position="25 2.5 10"
+                radius="1"
+                scale="1.25 1.25 1.25">
+        </Entity>
+
+        <Entity geometry="primitive: cylinder; height: 4.5"
+                material="src: #stone-texture"
+                position="-25 -1 10"
+                radius="0.75">
+        </Entity>
+
+        <Entity geometry="primitive: sphere" 
+                material="src: #renaissance360; side: double"
+                rotation="0 25 0"
+                position="-25 2.5 10"
+                radius="1"
+                scale="1.25 1.25 1.25">
+        </Entity>
+
+        <Entity geometry="primitive: cylinder; height: 4.5"
+                material="src: #stone-texture"
+                position="-25 -1 -10"
+                radius="0.75">
+        </Entity>
+
+        <Entity geometry="primitive: sphere" 
+                material="src: #WWII360; side: double"
+                position="-25 2.5 -10"
+                radius="1"
+                scale="1.25 1.25 1.25">
+        </Entity>
+
+        <Entity geometry="primitive: cylinder; height: 4.5"
+                material="src: #stone-texture"
+                position="25 -1 -10"
+                radius="0.75">
+        </Entity>
+
+        <Entity geometry="primitive: sphere" 
+                material="src: #modern360; side: double"
+                rotation="0 180 0"
+                position="25 2.5 -10"
+                radius="1"
+                scale="1.25 1.25 1.25">
+        </Entity>
+
+        <Placards changeCamView = { this.camViewdif.bind(this) } />
+
+        <SphereClickPads changeCamView={ this.camViewdif.bind(this) } />
+
         <Entity scale="0.00008 0.00008 0.00008" position="0 1 0" obj-model="obj: #map-rome-obj; mtl: #map-rome-mtl"></Entity>
         <Entity
           geometry="primitive: cylinder"
