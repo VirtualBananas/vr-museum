@@ -1,4 +1,5 @@
-import io from 'socket.io-client/socket.io';
+import skylink from './communication'
+
 const socket = io();
 const ROOM = 'MUSEUM';
 
@@ -6,15 +7,9 @@ const aframeConfig = {
   system:{
     init: function () {
       let sceneEl = this.sceneEl;
-      // adding socket io to the system .
-      this.socket = socket;
-      // room for avatars to join
-      this.socket.emit('ready', {
-          "museum": ROOM
-      });
-      // receaving array of avatars and adding them to the scene.
-      this.socket.on('allAvatars', function (data) {
-        console.log("this is the data from broadcast:==", data)
+      skylink.on('incomingMessage', function(data, peerId, peerInfo, isSelf){
+        data = JSON.parse(data.content);
+
         data.Queue.forEach(function syncState (entity) {
           var el = sceneEl.querySelector('#' + entity.id);
           if (!el) {
@@ -27,7 +22,9 @@ const aframeConfig = {
             el.setAttribute(component[0], component[1]);
           });
         });
-      });
+      })
+      // receaving array of avatars and adding them to the scene.
+    
     },
     // Queue to store avatars
     Queue: [],
@@ -36,7 +33,6 @@ const aframeConfig = {
       if (!el.getAttribute('id')) {
         el.setAttribute('id', avatarId());
       }
-      console.log('TESTING FOR el IN addSend', el);
       // Send avatar as a function so it can be called to retrive current attributes and location
       this.Queue.push(function send () {
         return {
@@ -52,12 +48,13 @@ const aframeConfig = {
     tick: function (time, dt) {
       if (time - this.time < 10) { return; }
       this.time = time;
-      this.socket.emit('broadcast', {
+
+      skylink.sendP2PMessage(JSON.stringify({
         room: ROOM, 
         Queue: this.Queue.map(function call (getSend) {
           return getSend();
         })
-      });
+      }));
     }
   },
 
