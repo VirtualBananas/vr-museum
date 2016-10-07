@@ -1,6 +1,5 @@
 import skylink from './communication'
 
-const socket = io();
 const ROOM = 'MUSEUM';
 
 const aframeConfig = {

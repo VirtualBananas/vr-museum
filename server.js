@@ -4,7 +4,6 @@ var server = require('http').Server(app);
 var path = require('path');
 var httpProxy = require('http-proxy');
 var publicPath = path.resolve(__dirname, 'public');
-var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 
 
