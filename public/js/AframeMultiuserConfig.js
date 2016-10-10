@@ -65,6 +65,7 @@ const aframeConfig = {
     init: function () {
       let data = this.data;
       let el = this.el;
+      console.log("thug life")
       let system = this.system;
       if (el.isScene || !data.send.length) { return; }
       system.prototype.addSend(el, data.send);
