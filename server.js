@@ -16,22 +16,22 @@ var proxy = httpProxy.createProxyServer({
 app.use(express.static(publicPath));
 
 //notice that you will not see a physical bundle.js because webpack-dev-server runs it from memory
-var bundle = require('./server/compiler.js')
-bundle()
+// var bundle = require('./server/compiler.js')
+// bundle()
 
 
 
-//express now processes all requests to localhost:8080
-//app.all is a special routing method used for loading middleware functions
-app.all('/build/*', function (req, res) {
-  proxy.web(req, res, {
-      target: 'http://localhost:8080'
-  })
-})
+// //express now processes all requests to localhost:8080
+// //app.all is a special routing method used for loading middleware functions
+// app.all('/build/*', function (req, res) {
+//   proxy.web(req, res, {
+//       target: 'http://localhost:8080'
+//   })
+// })
 
-proxy.on('error', function(e) {
-  console.log('Could not connect to proxy, please try again...')
-});
+// proxy.on('error', function(e) {
+//   console.log('Could not connect to proxy, please try again...')
+// });
 
 server.listen(port, function () {
   console.log('Server running on port ' + port)
