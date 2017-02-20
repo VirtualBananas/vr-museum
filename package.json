@@ -4,7 +4,8 @@
   "description": "Virtual world museum",
   "author": "Arnoldo Jorge Ralston",
   "scripts": {
-    "start": "webpack --config ./webpack.config.js && node server.js"
+    "postinstall": "webpack --config ./webpack.production.config.js",
+    "start": "node server.js"
   },
   "dependencies": {
     "aframe": "^0.3.1",

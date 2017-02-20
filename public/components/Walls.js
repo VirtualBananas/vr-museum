@@ -24,9 +24,6 @@ const allWalls = [
 	}
 ];
 
-
-
-
 const Walls = ({ material}) => {
 	const createdAllwalls = allWalls.map((obj, i) => {
 		return (

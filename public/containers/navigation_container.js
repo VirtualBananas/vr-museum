@@ -26,7 +26,7 @@ class Navigator extends Component {
 				{ this.renderList() }
 			</Entity>
 		);
-	}m
+	}
 }
 // Anything returned from this function will end up as props on the BookList container
 function mapStateToProps(state){
